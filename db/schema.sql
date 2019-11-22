@@ -1,0 +1,12 @@
+CREATE DATABASE blog;
+USE blog;
+
+
+CREATE TABLE blog_body(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  my_blogs VARCHAR(300),
+  date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+SELECT  *from blog_body;

@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- css reset file -->
+    <link rel="stylesheet" href="/CSS/reset.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- style css file -->
+    <link rel="stylesheet" href="/CSS/style.css">
+    <!-- ------------------------------------------------------------------------------ -->
+    <!-- CKEDITOR -->
+    <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery/3.1.0/jquery.min.js"> </script>
+    <script src="ckeditor/ckeditor.js"></script>
+
+    <!-- JavaScript file -->
+    <script src="script.js"></script>
+    <title>Blog-admin</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row row-input">
+            <textarea name="myextarea" id="editor1" class="col-6" cols="30" rows="6" placeholder="write your blog"
+                name="editor1"></textarea>
+        </div>
+        <div class="row row-button">
+            <button id="submit-btn" onclick="sendPost()">JITTER IT!</button>
+            <button id="update-btn" onclick="updatePost()" style="display:none">Update</button>
+        </div>
+        <h1 class="col-12 main-header">Jitter</h1>
+        <div class="row row-content-flex">
+            
+            <div class="col-md-8 posts-area col-sm-12">
+                <h1 class="post-area-header">Latest Posts</h1>
+                <div id="get-posts"></div>
+            </div>
+            <div class="col-md-4 my-info-area col-sm-12">
+                <img src="./Images/WNP_0002.jpg" style="width:100px" class="thumbnail-img" alt="image">
+                <h2 class="info-area-font">JonhDoe74</h2>
+                <p class="info-area-font" id="total"></p>
+                <br>
+                <p class="info-area-font">Name: John Doe</p>
+                <p class="info-area-font">Email: <a href="#" style="color: white;">John@lform.com</a></p>
+                <p class="info-area-font">website: <a href="http://www.lform.com" style="color: white;">www.lform.com</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    CKEDITOR.replace('editor1');
+</script>
+
+</html>

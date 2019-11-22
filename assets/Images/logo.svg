@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="223.921" height="114.322" viewBox="0 0 223.921 114.322">
+  <g id="Group_3" data-name="Group 3" transform="translate(-199.816 -165.678)">
+    <text id="ots" transform="translate(289.737 235)" fill="#3c3c3c" font-size="40" font-family="Verdana-Bold, Verdana" font-weight="700"><tspan x="0" y="0">ots</tspan></text>
+    <text id="ravels" transform="translate(289.737 272)" fill="#3c3c3c" font-size="39" font-family="Verdana-Bold, Verdana" font-weight="700"><tspan x="0" y="0">ravels</tspan></text>
+    <g id="Group_1" data-name="Group 1" transform="translate(244.09 165.957)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="37" height="35" transform="translate(-0.353 35.043)" fill="#63ea27"/>
+      <rect id="Rectangle_9" data-name="Rectangle 9" width="37" height="35" transform="translate(-0.353 0.043)" fill="#63ea27"/>
+      <rect id="Rectangle_14" data-name="Rectangle 14" width="36" height="35" transform="translate(35.647 0.043)" fill="#63ea27"/>
+    </g>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="36" height="35" transform="translate(242.737 238)" fill="#ff5050"/>
+    <rect id="Rectangle_2" data-name="Rectangle 2" width="36.605" height="36.605" transform="translate(199.816 172.035) rotate(-10)" fill="#27b5ea"/>
+    <g id="Group_2" data-name="Group 2" transform="matrix(0.978, -0.208, 0.208, 0.978, 364.539, 202.144)">
+      <path id="Path_2" data-name="Path 2" d="M0,0H35.873V35.873H0Z" transform="translate(0 3.427)" fill="#ff731c"/>
+      <text id="_" data-name="&amp;" transform="translate(5.375 33)" fill="#fff" font-size="33" font-family="Tahoma-Bold, Tahoma" font-weight="700"><tspan x="0" y="0">&amp;</tspan></text>
+    </g>
+  </g>
+</svg>

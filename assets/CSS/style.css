@@ -1,0 +1,93 @@
+body{
+    background-color: rgb(218, 218, 218);
+}
+
+.container{
+    border-bottom: solid rgb(19, 68, 114) 2px;
+}
+
+.my-info-area{
+    background-color: rgb(24, 113, 187);
+    border: solid rgb(19, 68, 114) 2px;
+    border-bottom: none;
+    padding-bottom: 20px;
+}
+
+.posts-area{
+    background-color: white;
+}
+
+.info-area-font{
+    color: white;
+    margin-bottom: 4px;
+}
+
+.post-area-header{
+    color: rgb(143, 143, 143);
+    margin-top: 30px;
+}
+
+.thumbnail-img{
+    margin-top: 40px;
+    border: solid white 2px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.row-input, .row-button{
+    margin-bottom: 20px;
+}
+
+#submit-btn, #update-btn{
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    background: rgb(2,0,36);
+    background: linear-gradient(11deg, rgba(2,0,36,1) 0%, rgba(34,90,164,1) 0%, rgba(62,192,218,1) 100%);
+    color: white;
+    border: solid rgb(19, 68, 114) 1px ;
+}
+
+.col-md-4, .col-md-8{
+    padding-left: 40px;
+}
+
+.date-created{
+    /* display: inline-block; */
+    float: left;
+    color: gray;
+    font-size: 14px;
+    width: fit-content;
+    /* border: solid black 1px; */
+}
+
+.post-content{
+    color: rgb(18, 149, 236);
+    font-size: 25px
+}
+
+.main-header{
+    margin-left: 0px;
+    font-size: 60px;
+    color: rgb(24, 113, 187);
+    font-weight: bolder;
+    text-shadow: -3px -3px 0 rgb(255, 255, 255), 3px -3px 0 rgb(255, 255, 255), -3px 3px 0 rgb(255, 255, 255), 3px 3px 0 rgb(255, 255, 255);
+}
+
+.edit-btn{
+    display: inline-block;
+    background: none;
+    border: none;
+    color: rgb(122, 122, 122);
+    float: none;
+}
+
+
+@media screen and (max-width: 768px) {
+   
+    .row-content-flex{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    
+}
