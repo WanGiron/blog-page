@@ -27,4 +27,29 @@ function getPost() {
         });
 };
 
+var token = '1754099140.2a0b257.eabf8e6964fd4b7c912e02aaefc497d7';
+var num_photos = 10;
+function getFeed(){
+    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=' + token + '&count=' + num_photos)
+            .then(res => {
+                return res.json();
+            })
+            .then(res => {
+                console.log(res.data);
+                var feed = res.data;
+                feed.map(results => {
+                    var img = document.createElement('img');
+                    img.setAttribute('src', results.images.low_resolution.url);
+                    img.setAttribute('class', 'insta-feed-img');
+                    var div = document.getElementById('instagram-feed');
+                    div.appendChild(img);
+                })
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+}
+
 getPost();
+getFeed();
