@@ -12,7 +12,6 @@ function getPost() {
                             <img class="blog-image" src="${blog_image}" class="card-img-top" alt="...">
                             <div class="div-blog-body">
                             <h5>${blog_title}</h5>
-                            <p>${my_blogs}</p>
                             <p>${blog_date}</p>
                             <button class="more-btn">Read</button>
                             </div>
