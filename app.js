@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("assets"));  
 };
 
-//server //
+// Server //
 var app = express();
 
 app.use(express.urlencoded({extended:false}));
@@ -40,11 +40,11 @@ app.use(session({
     saveUninitialized: true
   }));
 
-  // Passport middleware//
+// Passport middleware//
   app.use(passport.initialize());
   app.use(passport.session());
 
-// users routes //
+// Users routes //
 app.use('/users', require('./routes/users'));
 
 //Static folder//
@@ -56,22 +56,13 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/assets/home.html"));
 });
 
-//admin route//
+// Admin route //
 app.get("/admin", checkAuthenticated, (req, res) =>{
     res.sendFile(path.join(__dirname, "/assets/admin.html"));
 });
-
-// login route //
-// app.get("/login", function (req, res) {
-//     res.sendFile(path.join(__dirname, "/assets/login.html"));
-// });
-
-// admin route //
-// app.get("/admin", function (req, res) {
-//     res.sendFile(path.join(__dirname, "/assets/admin.html"));
-// });
-
 //-----------------------------------------------//
+
+
 //TODO: create connection to Db MongoDb //
 var mdb = require('./config/keys').MongoURI;
 mongoose.connect(mdb, { useNewUrlParser: true})
@@ -94,7 +85,7 @@ db.connect(function (err) {
 });
 
 
-
+// -------------------- MySQL ----------------------------------//
 //TODO: get all posts from db //
 app.get('/gettheposts', function (req, res) {
     var sql = 'SELECT * FROM blog_body';
@@ -134,7 +125,9 @@ app.post('/updatedpost/:id', function(req, res){
     })
     res.send('Updated!');
 });
+//-------------------------------------------------------------------------------------//
 
+// TODO: to authenticate admin page //
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -142,11 +135,8 @@ function checkAuthenticated(req, res, next){
     };
     res.redirect('/users/login');
 };
-//server setup //
-// app.listen('3000', function () {
-//     console.log('listening on port 3000');
-// });
 
+// server //
 app.listen(PORT, function () {
     console.log(
         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",

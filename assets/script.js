@@ -14,7 +14,7 @@ var HttpClient = function () {
 
 var client = new HttpClient();
 
-client.get('/gettheposts', function (response) {
+function posts(){client.get('/gettheposts', function (response) {
     var results = JSON.parse(response);
     var posts = results.length;
     document.getElementById('total').innerHTML = 'Total Posts: ' + posts;
@@ -53,7 +53,9 @@ client.get('/gettheposts', function (response) {
     })
    
 });
+}
 
+posts();
 
 function textArea(id){
     // var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
@@ -105,7 +107,9 @@ function sendPost() {
             return response.json();
         })
         alert('Post added!')
-        window.location.reload();
+        // window.location.reload();
+        
+        posts();
     }
    
 }
@@ -134,7 +138,11 @@ function updatePost() {
             return response.json();
         })
         alert('Post Updated!')
-        window.location.reload();
+        // window.location.reload();
+        var div = document.getElementById('get-posts');
+        div.innerHTML = '';
+        document.getElementById('editor1').value = '';
+        posts();
     }
    
 }
