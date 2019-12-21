@@ -1,6 +1,10 @@
 var express = require('express');
 var mysql = require('mysql');
 var path = require("path");
+var mongoose = require('mongoose');
+var flash = require('flash');
+var session = require('express-session');
+var passport = require('passport');
 var bodyParser = require('body-parser');
 
 var PORT = process.env.PORT || 5005;
@@ -15,25 +19,66 @@ var app = express();
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
+// //Connect to flash//
+// app.use(flash());
+
+// //Global vars//
+// app.use((req, res, next)=>{
+//     res.locals.success_msg = req.flash('succes_msg');
+//     res.locals.error_msg = req.flash('error_msg');
+//     res.locals.error = req.flash('error');
+//     next();
+// })
+//passport config//
+require('./config/passport')(passport);
+
+
+//express session//
+app.use(session({
+    secret: 'chocobo',
+    resave: true,
+    saveUninitialized: true
+  }));
+
+  // Passport middleware//
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+// users routes //
+app.use('/users', require('./routes/users'));
+
 //Static folder//
 app.use(express.static(__dirname + '/assets'));
 
 //-----------------// ROUTES //-----------------//
-
-// login route //
-app.get("/login", function (req, res) {
-    res.sendFile(path.join(__dirname, "/assets/login.html"));
+// Homepage route //
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "/assets/home.html"));
 });
 
-// admin route //
-app.get("/admin", function (req, res) {
+//admin route//
+app.get("/admin", checkAuthenticated, (req, res) =>{
     res.sendFile(path.join(__dirname, "/assets/admin.html"));
 });
 
+// login route //
+// app.get("/login", function (req, res) {
+//     res.sendFile(path.join(__dirname, "/assets/login.html"));
+// });
+
+// admin route //
+// app.get("/admin", function (req, res) {
+//     res.sendFile(path.join(__dirname, "/assets/admin.html"));
+// });
+
 //-----------------------------------------------//
+//TODO: create connection to Db MongoDb //
+var mdb = require('./config/keys').MongoURI;
+mongoose.connect(mdb, { useNewUrlParser: true})
+.then(()=> console.log('MongoDb connected'))
+.catch(err => console.log(err));
 
-
-//TODO: create connection to database//
+//TODO: create connection to database SQL//
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -90,10 +135,13 @@ app.post('/updatedpost/:id', function(req, res){
     res.send('Updated!');
 });
 
-// Homepage route //
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "/assets/home.html"));
-});
+function checkAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+
+    };
+    res.redirect('/users/login');
+};
 //server setup //
 // app.listen('3000', function () {
 //     console.log('listening on port 3000');

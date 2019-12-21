@@ -167,10 +167,9 @@ body{
 }
 
 .footer-section{
-    border: 1px gray solid;
     position: fixed;
     bottom: 0;
-    background-color: #114E65; 
+    background-color: rgb(41, 46, 48); 
     width: 100%; 
 }
 
@@ -178,6 +177,7 @@ body{
     width: 80%;
     margin: 0 auto;
     padding: 10px;
+    margin-top: 4px;
 }
 
 .logo-footer{
