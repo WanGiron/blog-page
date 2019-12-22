@@ -9,15 +9,18 @@ var bodyParser = require('body-parser');
 
 var PORT = process.env.PORT || 5005;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("/assets"));
-};
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("/assets"));
+// };
 
 // Server //
 var app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+//Static folder//
+app.use(express.static(__dirname + '/assets'));
 
 // //Connect to flash//
 // app.use(flash());
@@ -47,8 +50,6 @@ app.use(passport.session());
 // Users routes //
 app.use('/users', require('./routes/users'));
 
-//Static folder//
-app.use(express.static(__dirname + '/assets'));
 
 //-----------------// ROUTES //-----------------//
 // Homepage route //
