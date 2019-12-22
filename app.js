@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 5005;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("assets"));
+    app.use(express.static("/assets"));
 };
 
 // Server //
