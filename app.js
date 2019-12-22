@@ -70,21 +70,21 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .then(() => console.log('MongoDb connected'))
     .catch(err => console.log(err));
 
-//TODO: create connection to database SQL//
-// var db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'Pollito#2',
-//     database: 'blog'
-// });
-
-// Heroku //
+//TODO: create connection to database SQL Local //
 var db = mysql.createConnection({
-    host: 'g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'im52xdsiscbobsda',
-    password: 'o9x74h3o2ux29vnu',
-    database: 'j03vt1ym0mqfz9jv'
+    host: 'localhost',
+    user: 'root',
+    password: 'Pollito#2',
+    database: 'blog'
 });
+
+// TODO: create connection to database SQL Heroku //
+// var db = mysql.createConnection({
+//     host: 'g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+//     user: 'im52xdsiscbobsda',
+//     password: 'o9x74h3o2ux29vnu',
+//     database: 'j03vt1ym0mqfz9jv'
+// });
 
 db.connect(function (err) {
     if (err) {
