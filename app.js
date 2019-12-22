@@ -10,13 +10,13 @@ var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 5005;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("assets"));  
+    app.use(express.static("assets"));
 };
 
 // Server //
 var app = express();
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // //Connect to flash//
@@ -38,11 +38,11 @@ app.use(session({
     secret: 'chocobo',
     resave: true,
     saveUninitialized: true
-  }));
+}));
 
 // Passport middleware//
-  app.use(passport.initialize());
-  app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Users routes //
 app.use('/users', require('./routes/users'));
@@ -57,7 +57,7 @@ app.get("/", function (req, res) {
 });
 
 // Admin route //
-app.get("/admin", checkAuthenticated, (req, res) =>{
+app.get("/admin", checkAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "/assets/admin.html"));
 });
 //-----------------------------------------------//
@@ -65,16 +65,24 @@ app.get("/admin", checkAuthenticated, (req, res) =>{
 
 //TODO: create connection to Db MongoDb //
 var mdb = require('./config/keys').MongoURI;
-mongoose.connect(mdb, { useNewUrlParser: true})
-.then(()=> console.log('MongoDb connected'))
-.catch(err => console.log(err));
+mongoose.connect(mdb, { useNewUrlParser: true })
+    .then(() => console.log('MongoDb connected'))
+    .catch(err => console.log(err));
 
 //TODO: create connection to database SQL//
+// var db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Pollito#2',
+//     database: 'blog'
+// });
+
+// Heroku //
 var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Pollito#2',
-    database: 'blog'
+    host: 'g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'im52xdsiscbobsda',
+    password: 'o9x74h3o2ux29vnu',
+    database: 'j03vt1ym0mqfz9jv'
 });
 
 db.connect(function (err) {
@@ -97,7 +105,7 @@ app.get('/gettheposts', function (req, res) {
 });
 
 // to insert posts to db // 
-app.post('/postblog', function(req, res){
+app.post('/postblog', function (req, res) {
     var frontPost = req.body;
     console.log("this is the body" + frontPost);
     // object to be stored in db
@@ -116,9 +124,9 @@ app.post('/postblog', function(req, res){
 });
 
 // to insert posts to db // 
-app.post('/updatedpost/:id', function(req, res){
+app.post('/updatedpost/:id', function (req, res) {
     console.log("this is the body" + req.body.data);
-    var sql = `UPDATE blog_body set my_blogs = '${req.body.data}' WHERE id = ${req.params.id}`; 
+    var sql = `UPDATE blog_body set my_blogs = '${req.body.data}' WHERE id = ${req.params.id}`;
     db.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result);
@@ -128,8 +136,8 @@ app.post('/updatedpost/:id', function(req, res){
 //-------------------------------------------------------------------------------------//
 
 // TODO: to authenticate admin page //
-function checkAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
         return next();
 
     };
