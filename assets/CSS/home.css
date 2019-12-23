@@ -51,10 +51,20 @@ body{
 }
 .img-div{
     margin: 0 auto;
-    background-image: url("WNP_9594.jpg");
+    /* background-image: url("WNP_9594.jpg"); */
     background-size: cover;
+    background-position: 50% 50%;
     width: 100%;
     height: 400px;
+}
+.latest-blog-navigation{
+    float: right;
+    width: fit-content;
+    padding: 20px;
+}
+.div-home-latest{
+    text-align: right;
+    padding: 10px;
 }
 
 /* .lastest-post-image{
@@ -85,6 +95,7 @@ body{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
     justify-content: center;
     width: 80%;
     height: fit-content;
@@ -110,6 +121,7 @@ body{
     padding: 4px 10 4px 10px;
     background-color: #27B5EA;
     color: white;
+    border: none;
 }
 
 .instagram-section{

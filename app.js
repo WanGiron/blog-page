@@ -5,9 +5,8 @@ var mongoose = require('mongoose');
 var flash = require('flash');
 var session = require('express-session');
 var passport = require('passport');
-var bodyParser = require('body-parser');
 
-var PORT = process.env.PORT || 5005;
+var PORT = process.env.PORT || 80;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("/assets"));
@@ -71,6 +70,14 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
+// var db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'blog'
+// });
+
+//TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
