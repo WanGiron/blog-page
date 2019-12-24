@@ -1,5 +1,6 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: lighter;
 }
 #navbar-main{
     background-color: white; 
@@ -113,6 +114,7 @@ body{
     background-color: white;
     padding: 10px;
 }
+
 .blog-image{
     width: 100%;
 }

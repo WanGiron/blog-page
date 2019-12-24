@@ -6,7 +6,7 @@ var flash = require('flash');
 var session = require('express-session');
 var passport = require('passport');
 
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 5005;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("/assets"));
@@ -135,6 +135,17 @@ app.post('/postblog', function (req, res) {
 app.post('/updatedpost/:id', function (req, res) {
     console.log("this is the body" + req.body.data);
     var sql = `UPDATE blog_body set my_blogs = '${req.body.data}' WHERE id = ${req.params.id}`;
+    db.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+    })
+    res.send('Updated!');
+});
+
+// to delete posts to db // 
+app.delete('/deletepost/:id', function (req, res) {
+    console.log("this is the body" + req.body.data);
+    var sql = `DELETE FROM blog_body WHERE id = ${req.params.id}`;
     db.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result);

@@ -16,39 +16,55 @@
     <!-- style css file -->
     <link rel="stylesheet" href="/CSS/style.css">
     <!-- JavaScript file -->
- <script src="./script.js"></script>
+    <script src="./script.js"></script>
     <title>Blog-admin</title>
 </head>
 
 <body>
+    <h2 class="main-header">Blog administrator</h2>
     <div class="container">
-        <div class="row row-input">
-            <input name="image" id="blog-image" class="col-12" placeholder="Paste image URL here"></input>
-            <input name="title" id="blog-title" class="col-12" placeholder="Write your blog title"></input>
-            <input name="date" id="blog-date" class="col-12" type="datetime"placeholder="Date"></input>
-            <textarea name="myextarea" id="editor1" class="col-12" cols="30" rows="6" placeholder="write your blog body"></textarea>
-        </div>
-        <div class="row row-button">
-            <button id="submit-btn" onclick="sendPost()">JITTER IT!</button>
-            <button id="update-btn" onclick="updatePost()" style="display:none">Update</button>
-        </div>
-        <h1 class="col-12 main-header">Jitter</h1>
+        <form class="row col-10 form-body">
+            <h2 class="sub-header">Whrite a new blog with the form below</h2>
+            <div class="row-input col-12 form-group">
+                <label for="blog-image">Paste image URL link here</label>
+                <input name="image" id="blog-image" class="col-12 form-control"
+                    placeholder="Paste image URL here"></input>
+            </div>
+            <div class="row-input col-12 form-group">
+                <label for="blog-title">Write your blog title</label>
+                <input name="title" id="blog-title" class="col-12 form-control"
+                    placeholder="Write your blog title"></input>
+            </div>
+            <div class="row-input col-12 form-group">
+                <label for="blog-date">Write your blog's date</label>
+                <input name="date" id="blog-date" class="col-12 form-control" type="date" placeholder="Date"></input>
+            </div>
+            <div class="row-input col-12 form-group">
+                <label for="editor1">Write your blog</label>
+                <textarea name="myextarea" id="editor1" class="col-12 form-control" cols="30" rows="6"
+                    placeholder="write your blog"></textarea>
+            </div>
+            <div class="row-button">
+                <button id="submit-btn" onclick="sendPost()" class="my-button">Submit</button>
+                <button id="update-btn" onclick="updatePost()" style="display:none" class="my-button">Update</button>
+            </div>
+        </form>
+
         <div class="row row-content-flex">
-            
+
             <div class="col-md-8 posts-area col-sm-12">
                 <h1 class="post-area-header">Latest Posts</h1>
                 <div id="get-posts"></div>
             </div>
             <div class="col-md-4 my-info-area col-sm-12">
                 <img src="./Images/WNP_0002.jpg" style="width:100px" class="thumbnail-img" alt="image">
-                <h2 class="info-area-font">JonhDoe74</h2>
+                <h2 class="info-area-font">Lady</h2>
                 <p class="info-area-font" id="total"></p>
                 <br>
-                <p class="info-area-font">Name: John Doe</p>
-                <p class="info-area-font">Email: <a href="#" style="color: white;">John@lform.com</a></p>
-                <p class="info-area-font">website: <a href="http://www.lform.com" style="color: white;">www.lform.com</a></p>
+                <p class="info-area-font">Email: <a href="#" style="color: white;">totsandtravels@gmail.com</a></p>
             </div>
         </div>
+
     </div>
 </body>
 <!-- <script>

@@ -29,17 +29,16 @@ function posts(){client.get('/gettheposts', function (response) {
         div1.setAttribute("value", res.id);
         var h2 = document.createElement('h2');
         var nodeH = document.createTextNode(res.blog_title);
+        h2.appendChild(nodeH)
         var span = document.createElement('span');
-        span.innerHTML = '<button id='+ res.id+ ' class="edit-btn" onclick="textArea(this.id)" value=' +res.id+ ' >(Edit)</button>'
+        span.innerHTML = '<button id='+ res.id+ ' class="edit-btn" onclick="textArea(this.id)" value=' +res.id+ ' >(Edit)</button> <button class="edit-btn" onclick="deletePost(this.value)" value=' +res.id+ ' >(Delete)</button>'
         var ptag2 = document.createElement('P');
         ptag2.setAttribute("class", "date-created");
         var hr = document.createElement('hr');
-        var br = document.createElement('br');
         var node2 = document.createTextNode(res.date_created);
         var nodeBlog = document.createTextNode(res.my_blogs);
         // div1.innerHTML = res.my_blogs;
-        div1.appendChild(nodeH);
-        div1.appendChild(br);
+        div1.appendChild(h2);
         div1.appendChild(nodeBlog);
         // ptag.appendChild(span);
         ptag2.appendChild(node2);
@@ -113,8 +112,8 @@ function sendPost() {
     }
    
 }
-//TODO: Post function//
 
+//TODO: Post function//
 function updatePost() {
     // var updatedPost = CKEDITOR.instances.editor1.getData();
     var updatedPost = document.getElementById('editor1').value;
@@ -144,5 +143,24 @@ function updatePost() {
         document.getElementById('editor1').value = '';
         posts();
     }
+   
+}
+
+//TODO: Post function//
+function deletePost(value) {
+        fetch('/deletepost/'+value, {
+            method: 'delete',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function (res) {
+            console.log("Deleted");
+        })
+        alert('Post Deleted!')
+        // window.location.reload();
+        var div = document.getElementById('get-posts');
+        div.innerHTML = '';
+        document.getElementById('editor1').value = '';
+        posts();
    
 }

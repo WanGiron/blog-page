@@ -1,20 +1,23 @@
 body{
-    background-color: rgb(218, 218, 218);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.container{
-    border-bottom: solid rgb(19, 68, 114) 2px;
+.form-body{
+    margin: 0 auto;
+    border: 1px solid rgb(54, 54, 54);
+    padding: 10px;
+    margin-bottom: 40px;
 }
 
 .my-info-area{
-    background-color: rgb(24, 113, 187);
+    background-color: #114E65;
     border: solid rgb(19, 68, 114) 2px;
-    border-bottom: none;
     padding-bottom: 20px;
 }
 
 .posts-area{
     background-color: white;
+    border: solid #114E65 1px;
 }
 
 .info-area-font{
@@ -34,13 +37,17 @@ body{
     margin-bottom: 10px;
 }
 
+.row-button{
+    margin: 0 auto;
+}
 .row-input, .row-button{
     margin-bottom: 20px;
+
 }
 
 #submit-btn, #update-btn{
     font-size: 20px;
-    padding: 5px 10px 5px 10px;
+    /* padding: 5px 10px 5px 10px; */
     background: rgb(2,0,36);
     background: linear-gradient(11deg, rgba(2,0,36,1) 0%, rgba(34,90,164,1) 0%, rgba(62,192,218,1) 100%);
     color: white;
@@ -61,16 +68,28 @@ body{
 }
 
 .post-content{
-    color: rgb(18, 149, 236);
-    font-size: 25px
+    color: rgb(39, 39, 39)
 }
 
 .main-header{
-    margin-left: 0px;
-    font-size: 60px;
+    margin: 0 auto;
+    width: fit-content;
     color: rgb(24, 113, 187);
     font-weight: bolder;
-    text-shadow: -3px -3px 0 rgb(255, 255, 255), 3px -3px 0 rgb(255, 255, 255), -3px 3px 0 rgb(255, 255, 255), 3px 3px 0 rgb(255, 255, 255);
+    padding: 20px;
+    /* text-shadow: -3px -3px 0 rgb(255, 255, 255), 3px -3px 0 rgb(255, 255, 255), -3px 3px 0 rgb(255, 255, 255), 3px 3px 0 rgb(255, 255, 255); */
+}
+
+.main-header::before{
+    content: url('../Images/logo.png');
+    display: block;
+    width: 40px;
+    height: auto;
+}
+
+.sub-header{
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .edit-btn{
