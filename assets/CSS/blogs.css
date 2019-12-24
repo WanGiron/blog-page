@@ -1,0 +1,25 @@
+.more-div{
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.blog-header{
+    text-align: center;
+    padding: 20px;
+}
+
+.blog-body-div{
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(224, 224, 224);
+    padding: 10px;
+    margin-bottom: 100px;
+    text-align: justify;
+
+}
+
+.date-created{
+    text-align: right;
+    margin-bottom: 4px;
+}

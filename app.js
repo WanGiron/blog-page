@@ -70,20 +70,20 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
-var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Pollito#2',
-    database: 'blog'
-});
-
-//TODO: create connection Deployment //
 // var db = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',
-//     password: 'Nuevavida7',
+//     password: '',
 //     database: 'blog'
 // });
+
+//TODO: create connection Deployment //
+var db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
+});
 
 // TODO: create connection to database SQL Heroku //
 // var db = mysql.createConnection({
@@ -159,18 +159,15 @@ app.post('/user/more-info/:value', function (req, res) {
         if (err) throw err;
         console.log("this is my result"+JSON.stringify(result));
         res.json(result);
-    })
-    
-    
-    
+    })       
 });
+
 //-------------------------------------------------------------------------------------//
 
 // TODO: to authenticate admin page //
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
-
     };
     res.redirect('/users/login');
 };
@@ -179,7 +176,5 @@ function checkAuthenticated(req, res, next) {
 app.listen(PORT, function () {
     console.log(
         "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-        PORT,
-        PORT
-    );
+        PORT, PORT);
 });

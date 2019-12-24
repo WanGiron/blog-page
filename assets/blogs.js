@@ -23,12 +23,12 @@ function moreInfo(){
             let latest = '';
             res.forEach((results) => {
                 let { id, my_blogs, blog_image, blog_date, blog_title } = results;
-                blogs += `<div class="blog-div">
-                            <img class="blog-image" src="${blog_image}" class="card-img-top" alt="...">
-                            <div class="div-blog-body">
-                            <h5>${blog_title}</h5>
+                blogs += `<div class="more-div">
+                            <h1 class="blog-header">${blog_title}</h1>
+                            <img class="blog-image" src="${blog_image}" class="more-img" alt="...">
+                            <div class="blog-body-div">
                             <p>${my_blogs}</p>
-                            <p>${blog_date}</p>
+                            <p class="date-created">${blog_date}</p>
                             </div>
                       </div>`;
                 document.getElementById("my-blog").innerHTML = blogs;
