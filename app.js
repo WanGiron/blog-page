@@ -6,7 +6,7 @@ var flash = require('flash');
 var session = require('express-session');
 var passport = require('passport');
 
-var PORT = process.env.PORT || 5005;
+var PORT = process.env.PORT || 80;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("/assets"));
