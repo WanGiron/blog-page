@@ -14,7 +14,7 @@ function getPost() {
                             <div class="div-blog-body">
                             <h5>${blog_title}</h5>
                             <p>${blog_date}</p>
-                            <button id=${id} class="more-btn">Read</button>
+                            <button id=${id} class="more-btn" value=${id} onClick=(moreInfo(this.value))>Read</button>
                             </div>
                       </div>`;
                 document.getElementById("posts").innerHTML = blogs;
@@ -62,22 +62,11 @@ function getFeed() {
         })
 }
 
-// TODO get more info from blog //
-function moreInfo(value){
-   
-    fetch('/user/more-info/'+value, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(function (res) {
-        return res.json();
-    })
-    .then((res)=>{
-        console.log(res);
 
-    })
-}
+function moreInfo(value){
+window.location='blogs.html?value='+value;
+
+};
 
 getPost();
 getFeed();
