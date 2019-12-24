@@ -70,20 +70,20 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
-// var db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'blog'
-// });
-
-//TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Nuevavida7',
+    password: 'Pollito#2',
     database: 'blog'
 });
+
+//TODO: create connection Deployment //
+// var db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Nuevavida7',
+//     database: 'blog'
+// });
 
 // TODO: create connection to database SQL Heroku //
 // var db = mysql.createConnection({
@@ -133,7 +133,6 @@ app.post('/postblog', function (req, res) {
 
 // to insert posts to db // 
 app.post('/updatedpost/:id', function (req, res) {
-    console.log("this is the body" + req.body.data);
     var sql = `UPDATE blog_body set my_blogs = '${req.body.data}' WHERE id = ${req.params.id}`;
     db.query(sql, function (err, result) {
         if (err) throw err;
@@ -144,13 +143,26 @@ app.post('/updatedpost/:id', function (req, res) {
 
 // to delete posts to db // 
 app.delete('/deletepost/:id', function (req, res) {
-    console.log("this is the body" + req.body.data);
     var sql = `DELETE FROM blog_body WHERE id = ${req.params.id}`;
     db.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result);
     })
     res.send('Updated!');
+});
+
+// to get one post from database for users // 
+app.post('/user/more-info/:value', function (req, res) {
+    console.log("this is the body" + req.params.value);
+    var sql = `SELECT * FROM blog_body WHERE id = ${req.params.value}`;
+    db.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("this is my result"+JSON.stringify(result));
+        res.json(result);
+    })
+    
+    
+    
 });
 //-------------------------------------------------------------------------------------//
 

@@ -27,7 +27,7 @@ function getPost() {
                         <div class="div-home-latest">
                         <h1>${last.blog_title}</h1>
                         <p>${last.blog_date}</p>
-                        <button id=${last.id} class="more-btn">Read</button>
+                        <button id=${last.id} class="more-btn" value=${last.id} onClick=(moreInfo(this.value))>Read</button>
                         </div>
                         </div>`;
             document.getElementById("latest-post-home").innerHTML = latest;
@@ -60,6 +60,23 @@ function getFeed() {
         .catch(err => {
             console.log(err)
         })
+}
+
+// TODO get more info from blog //
+function moreInfo(value){
+   
+    fetch('/user/more-info/'+value, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function (res) {
+        return res.json();
+    })
+    .then((res)=>{
+        console.log(res);
+
+    })
 }
 
 getPost();

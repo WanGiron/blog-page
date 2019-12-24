@@ -79,13 +79,12 @@ function sendPost() {
     var date = document.getElementById('blog-date').value;
     var title = document.getElementById('blog-title').value;
     var image = document.getElementById('blog-image').value;
-    // var recentPost = CKEDITOR.instances.editor1.document.getBody().getText();
-    // var recentPost = CKEDITOR.instances.editor1.getData();
     console.log('test' + recentPost);
     //check for validation//
     if (recentPost === '') {
         alert('Please write something')
     }
+
     //post request if validation is right//
     else {
         var blogPost = {
@@ -105,9 +104,7 @@ function sendPost() {
         }).then(function (response) {
             return response.json();
         })
-        alert('Post added!')
-        // window.location.reload();
-        
+        alert('Post added!') 
         posts();
     }
    
@@ -164,3 +161,4 @@ function deletePost(value) {
         posts();
    
 }
+
