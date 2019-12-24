@@ -19,6 +19,20 @@ function moreInfo(){
     })
     .then((res)=>{
         console.log(res);
+        let blogs = '';
+            let latest = '';
+            res.forEach((results) => {
+                let { id, my_blogs, blog_image, blog_date, blog_title } = results;
+                blogs += `<div class="blog-div">
+                            <img class="blog-image" src="${blog_image}" class="card-img-top" alt="...">
+                            <div class="div-blog-body">
+                            <h5>${blog_title}</h5>
+                            <p>${my_blogs}</p>
+                            <p>${blog_date}</p>
+                            </div>
+                      </div>`;
+                document.getElementById("my-blog").innerHTML = blogs;
+            });
 
     })
 }
