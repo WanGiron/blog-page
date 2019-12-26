@@ -113,6 +113,8 @@ body{
 .div-blog-body{
     background-color: white;
     padding: 10px;
+    height: 150;
+    max-height: 150px;
 }
 
 .blog-image{

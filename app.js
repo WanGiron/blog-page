@@ -21,7 +21,7 @@ app.use(express.json());
 //Static folder//
 app.use(express.static(__dirname + '/assets'));
 
-// //Connect to flash//
+//Connect to flash//
 // app.use(flash());
 
 // //Global vars//
@@ -31,6 +31,7 @@ app.use(express.static(__dirname + '/assets'));
 //     res.locals.error = req.flash('error');
 //     next();
 // })
+
 //passport config//
 require('./config/passport')(passport);
 

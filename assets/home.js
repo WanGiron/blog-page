@@ -4,7 +4,7 @@ function getPost() {
             return res.json();
         })
         .then(function (data) {
-            console.log(data);
+            // console.log(data);
             let blogs = '';
             let latest = '';
             data.forEach((results) => {
@@ -22,7 +22,7 @@ function getPost() {
 
             // to get las blog in array //
             let last = data.slice(-1)[0]
-            console.log(last);
+            // console.log(last);
             latest += `<div class="latest-blog-navigation">
                         <div class="div-home-latest">
                         <h1>${last.blog_title}</h1>
@@ -46,7 +46,7 @@ function getFeed() {
             return res.json();
         })
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             var feed = res.data;
             feed.map(results => {
                 var img = document.createElement('img');

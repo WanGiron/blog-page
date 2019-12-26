@@ -13,9 +13,9 @@ router.get("/login", function (req, res) {
 });
 
 // Register user //
-// router.get("/register", function (req, res) {
-//     res.sendFile(path.join(__dirname, "../assets/register.html"));
-// });
+router.get("/register", function (req, res) {
+    res.sendFile(path.join(__dirname, "../assets/register.html"));
+});
 
 
 //Register
@@ -66,8 +66,8 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/admin',
-        failureRedirect: '/users/login',
-        failureFlash: true
+        failureRedirect: '/notFound.html',
+        failureFlash: false
     })(req, res, next);
 })
 
