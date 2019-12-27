@@ -2,11 +2,13 @@ var express = require('express');
 var mysql = require('mysql');
 var path = require("path");
 var mongoose = require('mongoose');
-var flash = require('flash');
+var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 
-var PORT = process.env.PORT || 5005;
+
+
+var PORT = process.env.PORT || 80;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("/assets"));
@@ -21,8 +23,33 @@ app.use(express.json());
 //Static folder//
 app.use(express.static(__dirname + '/assets'));
 
+//passport config//
+require('./config/passport')(passport);
+//express session//
+app.use(session({
+    secret: 'chocobo',
+    resave: true,
+    saveUninitialized: true
+}));
+
 //Connect to flash//
-// app.use(flash());
+
+app.use(flash());
+
+app.get('/', function (req, res) {
+    req.flash('Welcome', 'message testin with flash' );
+    res.render('/home.html', {
+      title: 'Home'
+    })
+  });
+// app.use(session()); // session middleware
+// app.use(require('flash')());
+ 
+// app.use(function (req, res) {
+//   // flash a message
+//   req.flash('info', 'hello!');
+//   next();
+// })
 
 // //Global vars//
 // app.use((req, res, next)=>{
@@ -32,16 +59,7 @@ app.use(express.static(__dirname + '/assets'));
 //     next();
 // })
 
-//passport config//
-require('./config/passport')(passport);
 
-
-//express session//
-app.use(session({
-    secret: 'chocobo',
-    resave: true,
-    saveUninitialized: true
-}));
 
 // Passport middleware//
 app.use(passport.initialize());
@@ -71,20 +89,20 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
-var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Pollito#2',
-    database: 'blog'
-});
-
-//TODO: create connection Deployment //
 // var db = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',
-//     password: 'Nuevavida7',
+//     password: '',
 //     database: 'blog'
 // });
+
+//TODO: create connection Deployment //
+var db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
+});
 
 // TODO: create connection to database SQL Heroku //
 // var db = mysql.createConnection({
@@ -159,7 +177,7 @@ app.post('/updatedpost/:id', function (req, res) {
         blog_date: frontPost.blog_date,
         blog_image: frontPost.blog_image
     };
-    
+
     var sql = `UPDATE blog_body SET ? WHERE id = ${req.params.id}`;
     db.query(sql, post, function (err, result) {
         if (err) throw err;
@@ -189,7 +207,7 @@ app.post('/user/more-info/:value', function (req, res) {
     })       
 });
 
-//-------------------------------------------------------------------------------------//
+//----------------------------------------------------------------//
 
 // TODO: to authenticate admin page //
 function checkAuthenticated(req, res, next) {
