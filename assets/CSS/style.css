@@ -49,9 +49,15 @@ body{
     font-size: 20px;
     /* padding: 5px 10px 5px 10px; */
     background: rgb(2,0,36);
-    background: linear-gradient(11deg, rgba(2,0,36,1) 0%, rgba(34,90,164,1) 0%, rgba(62,192,218,1) 100%);
+    background: #27B5EA;
     color: white;
-    border: solid rgb(19, 68, 114) 1px ;
+    border: none;
+}
+
+.btn-logout{
+    background-color: #FF5050;
+    padding: 3px;
+    color: white;
 }
 
 .col-md-4, .col-md-8{
@@ -68,7 +74,8 @@ body{
 }
 
 .post-content{
-    color: rgb(39, 39, 39)
+    color: rgb(39, 39, 39);
+    display: none;
 }
 
 .main-header{

@@ -1,73 +1,48 @@
 var myId = [];
-// TODO: get all posts from  database //
-var HttpClient = function () {
-    this.get = function (aUrl, aCallback) {
-        var anHttpRequest = new XMLHttpRequest();
-        anHttpRequest.onreadystatechange = function () {
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
-        }
-        anHttpRequest.open("GET", aUrl, true);
-        anHttpRequest.send(null);
-    }
-}
 
-var client = new HttpClient();
 
-function posts(){client.get('/gettheposts', function (response) {
-    var results = JSON.parse(response);
-    var posts = results.length;
-    document.getElementById('total').innerHTML = 'Total Posts: ' + posts;
-    console.log(results);
-    // loop thru array of blogs from data base //
-    results.map(res => {
-        //creating tags so we can add our values from db //
-        var div1 = document.createElement('div');
-        //class added for styling//
-        div1.setAttribute("class", "post-content");
-        // setting value as sql ID//
-        div1.setAttribute("value", res.id);
-        var h2 = document.createElement('h2');
-        var nodeH = document.createTextNode(res.blog_title);
-        h2.appendChild(nodeH)
-        var span = document.createElement('span');
-        span.innerHTML = '<button id='+ res.id+ ' class="edit-btn" onclick="textArea(this.id)" value=' +res.id+ ' >(Edit)</button> <button class="edit-btn" onclick="deletePost(this.value)" value=' +res.id+ ' >(Delete)</button>'
-        var ptag2 = document.createElement('P');
-        ptag2.setAttribute("class", "date-created");
-        var hr = document.createElement('hr');
-        var node2 = document.createTextNode(res.date_created);
-        var nodeBlog = document.createTextNode(res.my_blogs);
-        // div1.innerHTML = res.my_blogs;
-        div1.appendChild(h2);
-        div1.appendChild(nodeBlog);
-        // ptag.appendChild(span);
-        ptag2.appendChild(node2);
-        var div2 = document.createElement('div');
-        var div = document.getElementById('get-posts');
-        div2.appendChild(div1);
-        div2.appendChild(span);
-        div2.appendChild(ptag2);
-        div2.appendChild(hr);
-        div.prepend(div2);    
-    })
-   
-});
+//TODO: to get posts to admin site //
+function posts() {
+    fetch('/gettheposts')
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (results) {
+        var posts = results.length;
+        document.getElementById('total').innerHTML = 'Total Posts: ' + posts;
+        let blogs = '';
+        results.forEach((res) => {
+            let { id, my_blogs, blog_image, blog_date, blog_title } = res;
+            blogs += ` <div>
+                        <h2>${blog_title}</h2>
+                        <div class="post-content" value=${id}>
+                        ${my_blogs}
+                        </div>
+                        <span><button id=${id} class="edit-btn" onclick="textArea(this.id)" value=${id}>(Edit)</button> 
+                        <button class="edit-btn" onclick="deletePost(this.value)" value=${id}>(Delete)</button>
+                        </span><p class="date-created">${blog_date}</p>
+                        <hr>
+                    </div>
+                    `
+            document.getElementById('get-posts').innerHTML = blogs;
+
+        })
+    });
 }
 
 posts();
 
-function textArea(id){
+function textArea(id) {
     // var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
     var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
     // var text = document.getElementById(id).value;
     var editBlog = document.getElementById('editor1');
-    console.log('test'+ text);
+    console.log('test' + text);
     editBlog.innerHTML = text;
-    // CKEDITOR.instances.editor1.setData(text);
     document.getElementById('update-btn').style.display = 'inline-block';
     document.getElementById('submit-btn').style.display = 'none';
-    console.log(text);  
-    myId.push(id); 
+    console.log(text);
+    myId.push(id);
 }
 
 
@@ -104,16 +79,19 @@ function sendPost() {
         }).then(function (response) {
             return response.json();
         })
-        alert('Post added!') 
+        alert('Post added!')
         posts();
     }
-   
+
 }
 
 //TODO: Post function//
 function updatePost() {
     // var updatedPost = CKEDITOR.instances.editor1.getData();
     var updatedPost = document.getElementById('editor1').value;
+    var updatedImage = document.getElementById('blog-image').value;
+    var updatedTilte = document.getElementById('blog-title').value;
+    var updatedDate = document.getElementById('blog-date').value;
     console.log(updatedPost);
     if (updatedPost === '') {
         alert('Please write something')
@@ -121,10 +99,13 @@ function updatePost() {
     //post request if validation is right//
     else {
         var blogPost = {
-            data: updatedPost
+            my_blogs: updatedPost,
+            blog_image: updatedImage,
+            blog_title: updatedTilte,
+            blog_date: updatedDate
         };
 
-        fetch('/updatedpost/'+myId[0], {
+        fetch('/updatedpost/' + myId[0], {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -140,25 +121,26 @@ function updatePost() {
         document.getElementById('editor1').value = '';
         posts();
     }
-   
+
 }
 
 //TODO: Post function//
 function deletePost(value) {
-        fetch('/deletepost/'+value, {
-            method: 'delete',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function (res) {
-            console.log("Deleted");
-        })
-        alert('Post Deleted!')
-        // window.location.reload();
-        var div = document.getElementById('get-posts');
-        div.innerHTML = '';
-        document.getElementById('editor1').value = '';
-        posts();
-   
+    fetch('/deletepost/' + value, {
+        method: 'delete',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function (res) {
+        console.log("Deleted");
+    })
+    alert('Post Deleted!')
+    // window.location.reload();
+    var div = document.getElementById('get-posts');
+    div.innerHTML = '';
+    document.getElementById('editor1').value = '';
+    posts();
+
 }
+
 

@@ -1,9 +1,11 @@
 .more-div{
-    width: 60%;
+    width: 70%;
+    height: auto;
     max-width: 1250px;
     margin: 0 auto;
     margin-top: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 100px;
 }
 
 .blog-header{
@@ -14,9 +16,10 @@
 .blog-body-div{
     width: 100%;
     margin: 0 auto;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(247, 247, 247);
+    font-size: 18px;
     padding: 10px;
-    margin-bottom: 100px;
+    color: rgb(70, 70, 70);
     text-align: justify;
 
 }
@@ -24,5 +27,19 @@
 .date-created{
     text-align: right;
     margin-bottom: 4px;
-    color: rgb(92, 92, 92);
+    color: rgb(153, 153, 153);
+    padding: 5px;
+}
+
+.phanto-img{ 
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    border: 4px rgb(255, 255, 255) solid;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: solid rgb(150, 150, 150) 1px; */
 }

@@ -6,7 +6,7 @@ var flash = require('flash');
 var session = require('express-session');
 var passport = require('passport');
 
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 5005;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("/assets"));
@@ -71,20 +71,20 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
-// var db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'blog'
-// });
-
-//TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Nuevavida7',
+    password: 'Pollito#2',
     database: 'blog'
 });
+
+//TODO: create connection Deployment //
+// var db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Nuevavida7',
+//     database: 'blog'
+// });
 
 // TODO: create connection to database SQL Heroku //
 // var db = mysql.createConnection({
@@ -108,7 +108,7 @@ app.get('/gettheposts', function (req, res) {
     var sql = 'SELECT * FROM blog_body';
     db.query(sql, function (err, results) {
         if (err) throw err;
-        console.log(results)
+        // console.log(results)
         res.json(results);
     });
 });
@@ -116,8 +116,6 @@ app.get('/gettheposts', function (req, res) {
 // to insert posts to db // 
 app.post('/postblog', function (req, res) {
     var frontPost = req.body;
-    console.log("this is the body" + frontPost);
-    // object to be stored in db
     var post = {
         my_blogs: frontPost.my_blogs,
         blog_title: frontPost.blog_title,
@@ -127,17 +125,45 @@ app.post('/postblog', function (req, res) {
     var sql = 'INSERT INTO blog_body SET ?';
     db.query(sql, post, function (err, result) {
         if (err) throw err;
-        console.log(result);
+        // console.log(result);
     })
-    res.json(frontPost);
+    res.redirect('/admin');
+    // res.json(frontPost);
 });
 
-// to insert posts to db // 
+// to insert posts to db with form method // 
+// app.post('/postblog', function (req, res) {
+//     console.log(req.body);
+//     var { my_blogs, blog_title, blog_date, blog_image } = req.body;
+//     // object to be stored in db
+//     var post = {
+//         my_blogs: my_blogs,
+//         blog_title: blog_title,
+//         blog_date: blog_date, 
+//         blog_image: blog_image
+//     }
+//     var sql = 'INSERT INTO blog_body SET ?';
+//     db.query(sql, post, function (err, result) {
+//         if (err) throw err;
+//         // console.log(result);
+//     })
+//     res.json('done');
+// });
+
+// to insert updated posts to db // 
 app.post('/updatedpost/:id', function (req, res) {
-    var sql = `UPDATE blog_body set my_blogs = '${req.body.data}' WHERE id = ${req.params.id}`;
-    db.query(sql, function (err, result) {
+    var frontPost = req.body;
+    var post = {
+        my_blogs: frontPost.my_blogs,
+        blog_title: frontPost.blog_title,
+        blog_date: frontPost.blog_date,
+        blog_image: frontPost.blog_image
+    };
+    
+    var sql = `UPDATE blog_body SET ? WHERE id = ${req.params.id}`;
+    db.query(sql, post, function (err, result) {
         if (err) throw err;
-        console.log(result);
+        // console.log(result);
     })
     res.send('Updated!');
 });
@@ -147,18 +173,18 @@ app.delete('/deletepost/:id', function (req, res) {
     var sql = `DELETE FROM blog_body WHERE id = ${req.params.id}`;
     db.query(sql, function (err, result) {
         if (err) throw err;
-        console.log(result);
+        // console.log(result);
     })
     res.send('Updated!');
 });
 
 // to get one post from database for users // 
 app.post('/user/more-info/:value', function (req, res) {
-    console.log("this is the body" + req.params.value);
+    // console.log("this is the body" + req.params.value);
     var sql = `SELECT * FROM blog_body WHERE id = ${req.params.value}`;
     db.query(sql, function (err, result) {
         if (err) throw err;
-        console.log("this is my result"+JSON.stringify(result));
+        // console.log("this is my result"+JSON.stringify(result));
         res.json(result);
     })       
 });
