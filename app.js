@@ -34,14 +34,14 @@ app.use(session({
 
 //Connect to flash//
 
-app.use(flash());
+// app.use(flash());
 
-app.get('/', function (req, res) {
-    req.flash('Welcome', 'message testin with flash' );
-    res.render('/home.html', {
-      title: 'Home'
-    })
-  });
+// app.get('/', function (req, res) {
+//     req.flash('Welcome', 'message testin with flash' );
+//     res.render('/home.html', {
+//       title: 'Home'
+//     })
+//   });
 // app.use(session()); // session middleware
 // app.use(require('flash')());
  
