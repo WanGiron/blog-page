@@ -21,7 +21,7 @@ function moreInfo() {
                 let { id, my_blogs, blog_image, blog_date, blog_title } = results;
                 blogs += `<div class="more-div">
                             <h1 class="blog-header">${blog_title}</h1>
-                            <img class="blog-image" src="${blog_image}" class="more-img" alt="...">
+                            <img class="blog-image-more" src="${blog_image}" class="more-img" alt="...">
                             <div class="blog-body-div">
                                 <p>${my_blogs}</p>
                                 <hr>
