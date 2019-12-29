@@ -1,0 +1,37 @@
+#more-content{
+    margin: 0 auto;
+    width: 60%;
+    background-color: rgb(241, 241, 241);
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.header{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.blog-div-cat{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    border: solid 1px rgb(192, 192, 192);
+
+}
+.blog-img-cat{
+    width: 100%;
+    max-width: 300px;
+    min-width: 300px;
+    height: auto;
+
+}
+
+.title-blog{
+    padding: 4px;
+}
+
+.blog-body-cat{
+    width: 100%;
+    padding: 10px;
+}
