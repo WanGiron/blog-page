@@ -8,7 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 5005;
 // Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("/assets"));
@@ -79,6 +79,13 @@ app.get("/", function (req, res) {
 app.get("/admin", checkAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "/assets/admin.html"));
 });
+
+// Travels route //
+app.get("/travels", (req, res) => {
+    res.sendFile(path.join(__dirname, "/assets/admin.html"));
+});
+
+
 //-----------------------------------------------//
 
 
@@ -89,20 +96,20 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
-// var db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'blog'
-// });
-
-//TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Nuevavida7',
+    password: 'Pollito#2',
     database: 'blog'
 });
+
+//TODO: create connection Deployment //
+// var db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'Nuevavida7',
+//     database: 'blog'
+// });
 
 // TODO: create connection to database SQL Heroku //
 // var db = mysql.createConnection({
@@ -137,9 +144,11 @@ app.post('/postblog', function (req, res) {
     var post = {
         my_blogs: frontPost.my_blogs,
         blog_title: frontPost.blog_title,
+        category: frontPost.category,
         blog_date: frontPost.blog_date,
         blog_image: frontPost.blog_image
     }
+
     var sql = 'INSERT INTO blog_body SET ?';
     db.query(sql, post, function (err, result) {
         if (err) throw err;
@@ -174,6 +183,7 @@ app.post('/updatedpost/:id', function (req, res) {
     var post = {
         my_blogs: frontPost.my_blogs,
         blog_title: frontPost.blog_title,
+        Category: frontPost.category,
         blog_date: frontPost.blog_date,
         blog_image: frontPost.blog_image
     };
@@ -201,6 +211,18 @@ app.post('/user/more-info/:value', function (req, res) {
     // console.log("this is the body" + req.params.value);
     var sql = `SELECT * FROM blog_body WHERE id = ${req.params.value}`;
     db.query(sql, function (err, result) {
+        if (err) throw err;
+        // console.log("this is my result"+JSON.stringify(result));
+        res.json(result);
+    })       
+});
+
+// to get one post from database for users // 
+app.post('/user/all-post-cat/:cat', function (req, res) {
+    console.log("this is the body" + req.params.cat);
+    var sql = `SELECT * FROM blog_body WHERE category = "${req.params.cat}"`;
+    db.query(sql, function (err, result) {
+        // console.log("this is my result"+JSON.stringify(result));
         if (err) throw err;
         // console.log("this is my result"+JSON.stringify(result));
         res.json(result);
