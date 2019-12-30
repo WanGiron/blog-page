@@ -10,25 +10,47 @@ console.log(c);
 // TODO: change page title based on category // 
 var h1 = document.createElement('h1');
 h1.setAttribute('class', 'header');
-var node1 = document.createTextNode('Perfect vacations with your toddler');
-var node2 = document.createTextNode('Tips!');
-var node3 = document.createTextNode('One Day Trips with Toddlers');
+var p = document.createElement('h3');
+p.setAttribute('class', 'subtitle');
+var traveHeader = document.createTextNode('TRAVELS');
+var travelSub = document.createTextNode('Perfect vacations with your toddler!');
+var tipsHeader = document.createTextNode('TIPS!');
+var tipsSub = document.createTextNode('Useful tips for your adventures!');
+var trips = document.createTextNode('DAY TRIPS');
+var tripsSub = document.createTextNode('One day trips with toddlers');
+//----------------------------------------------------//
+
+var styleTravels = document.getElementById('travels');
+var styleTips = document.getElementById('tips');
+var styleTrips = document.getElementById('trips');
 
 function title() {
     switch (c) {
         case 'Travel':
-            h1.appendChild(node1);
+            h1.appendChild(traveHeader);
+            p.appendChild(travelSub);
             contentDiv.prepend(h1);
+            contentDiv.prepend(p);
+            //-------------------//
+            styleTravels.setAttribute('class', 'active-travels');
             break;
 
         case 'Tips': 
-            h1.appendChild(node2);
+            h1.appendChild(tipsHeader);
+            p.appendChild(tipsSub);
             contentDiv.prepend(h1);
+            contentDiv.prepend(p);
+            //-------------------//
+            styleTips.setAttribute('class', 'active-tips');
             break;
 
         case 'Day-trips':           
-            h1.appendChild(node3);
+            h1.appendChild(trips);
+            p.appendChild(tripsSub);
             contentDiv.prepend(h1);
+            contentDiv.prepend(p);
+            //-------------------//
+            styleTrips.setAttribute('class', 'active-trips');
             break;
         default:
     }

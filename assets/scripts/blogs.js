@@ -16,23 +16,29 @@ function moreInfo() {
     })
         .then((res) => {
             // console.log(res);
-            let blogs = '';
-            res.forEach((results) => {
-                let { id, my_blogs, blog_image, blog_date, blog_title } = results;
-                blogs += `<div class="more-div">
+            var results = res[0];
+            var { id, my_blogs, blog_image, blog_date, blog_title, category } = results;
+            var blogs = '';
+            blogs += `<div class="more-div">
                             <h1 class="blog-header">${blog_title}</h1>
-                            <img class="blog-image-more" src="${blog_image}" class="more-img" alt="...">
+                            <hr>
+                            <p class="category-blog">--${category}--</p>
+                            <img class="blog-image-more" src="${blog_image}" class="more-img">
                             <div class="blog-body-div">
                                 <p>${my_blogs}</p>
-                                <hr>
-                                <p class="date-created">${blog_date}</p>
                             </div>
-                           
-                      </div>`;
-                document.getElementById("my-blog").innerHTML = blogs;
-            });
+                            <hr>
+                            <p class="date-created">${blog_date}</p>                       
+                        </div>`;
+            document.getElementById("my-blog").innerHTML = blogs;
+        });
+}
 
-        })
+function modal(id) {
+    var img = document.createElement('img');
+    img.setAttribute('src', id);
+    var div = document.getElementById('modal-img');
+    div.appendChild(img);
 }
 
 moreInfo();

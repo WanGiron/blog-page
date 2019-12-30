@@ -13,8 +13,9 @@ function getPost() {
                             <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id)) alt="...">
                             <div class="div-blog-body">
                             <h5>${blog_title}</h5>
-                            <p>${category}</p>
-                            <p>${blog_date}</p>
+                            <p class="home-cat">${category}</p>
+                            <p class="home-date">${blog_date}</p>
+                            <hr>
                             <button id=${id} class="more-btn" value=${id} onClick=(moreInfo(this.value))>Read</button>
                             </div>
                       </div>`;

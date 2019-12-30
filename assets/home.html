@@ -21,21 +21,15 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <img src="Images/logo.png" alt="pic" class="logo">
-        <div class="collapse navbar-collapse" id="navbarText">
-            <div class='content'>
-                <ul class="ul-navbar-menu navbar-nav" id="navigation">
-                    <li class="option1-li li-menu nav-item"><a href="/categories.html?value=Travel" class="nav-link">Travels</a></li>
-                    <li class="option2-li li-menu nav-item"><a href="/categories.html?value=Tips" class="nav-link">Tips</a></li>
-                    <li class="option3-li li-menu nav-item"><a href="/categories.html?value=Day-trips" class="nav-link">Day trips</a></li>
-                </ul>
-            </div>
+    <div id='navbar-main'>
+        <div class='content'><a href="/"><img src="Images/logo.png" alt="pic" class="logo"></a>
+            <ul class="ul-navbar-menu" id="navigation">
+                <a href="/categories.html?value=Travel"><li class="option1-li li-menu">Travels</li></a>
+                <a href="/categories.html?value=Tips"><li class="option2-li li-menu">Tips</li></a>
+                <a href="/categories.html?value=Day-trips"><li class="option3-li li-menu">Day trips</li></a>
+            </ul>
         </div>
-    </nav>
+    </div>
    
     <div class="latest-post">
         <div class="latest-post-content">
@@ -54,7 +48,7 @@
             </div>
         </div>
     </div>
-
+    <h1 class="latest-content-header">Latest Content</h1>
     <div id="posts-section">
         <div id="posts"></div>
     </div>
