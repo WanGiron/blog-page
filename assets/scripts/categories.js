@@ -10,7 +10,7 @@ console.log(c);
 // TODO: change page title based on category // 
 var h1 = document.createElement('h1');
 h1.setAttribute('class', 'header');
-var p = document.createElement('h3');
+var p = document.createElement('p');
 p.setAttribute('class', 'subtitle');
 var traveHeader = document.createTextNode('TRAVELS');
 var travelSub = document.createTextNode('Perfect vacations with your toddler!');

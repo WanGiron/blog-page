@@ -5,9 +5,10 @@ function getPost() {
         })
         .then(function (data) {
             // console.log(data);
+            var data2 = data.slice(-4);
             let blogs = '';
             let latest = '';
-            data.forEach((results) => {
+            data2.forEach((results) => {
                 let { id, my_blogs, category, blog_image, blog_date, blog_title } = results;
                 blogs += `<div class="blog-div">
                             <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id)) alt="...">
@@ -30,7 +31,7 @@ function getPost() {
                         <h1 class="latest-blog-title">${last.blog_title}</h1>
                         <p>${last.category}</p>
                         <p class="latest-blog-date">${last.blog_date}</p>
-                        <button id=${last.id} class="more-btn" value=${last.id} onClick=(moreInfo(this.value))>Read</button>
+                        <button id=${last.id} class="more-btn-latest" value=${last.id} onClick=(moreInfo(this.value))>Read</button>
                         </div>
                         </div>`;
             document.getElementById("latest-post-home").innerHTML = latest;
@@ -41,29 +42,6 @@ function getPost() {
 };
 
 
-var token = '1754099140.2a0b257.eabf8e6964fd4b7c912e02aaefc497d7';
-var num_photos = 12;
-function getFeed() {
-    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=' + token + '&count=' + num_photos)
-        .then(res => {
-            return res.json();
-        })
-        .then(res => {
-            // console.log(res.data);
-            var feed = res.data;
-            feed.map(results => {
-                var img = document.createElement('img');
-                img.setAttribute('src', results.images.low_resolution.url);
-                img.setAttribute('class', 'insta-feed-img');
-                var div = document.getElementById('instagram-feed');
-                div.appendChild(img);
-            })
-
-        })
-        .catch(err => {
-            console.log(err)
-        })
-}
 
 
 function moreInfo(value){

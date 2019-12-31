@@ -5,6 +5,7 @@ body{
 a{
     color: rgb(70, 70, 70);
 }
+
 .navbar{
     background-color: white; 
     width: 80%;
@@ -13,10 +14,11 @@ a{
 }
 
 .logo{
-    width: 140px;
+    width: 120px;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .content{
@@ -136,7 +138,7 @@ a{
 .latest-content-header{
     text-align: center;
     color: rgb(44, 44, 44);
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #posts-section{
@@ -144,7 +146,7 @@ a{
     width: 100%;
     background-color: #E0E0E0;
     /* margin: 0 auto; */
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
 }
 
@@ -155,46 +157,72 @@ a{
     flex-direction: row-reverse;
     justify-content: center;
     width: 80%;
+    min-width: 900px;
     height: fit-content;
 }
 
 .blog-div{
-    margin: 10px;
-    width: 200px;
+    margin: 5px;
+    width: 23%;
     min-width: 200px;
     height: fit-content;
     border: 1px solid rgb(192, 192, 192);
     text-align: center;
+    transition: transform .2s;
 }
 
 .div-blog-body{
     background-color: white;
-    padding: 10px;
+    padding: 5px;
     height: auto;
     max-height: fit-content;
 }
 
 .home-cat, .home-date{
     color: rgb(75, 75, 75);
+    margin-bottom: 4px;
+    font-size: 12px;
 }
+
+hr{
+    margin: 4px;
+}
+
 .blog-image{
     width: 100%;
     cursor: pointer;
-    transition: transform .2s;
 
 }
 
-.blog-image:hover{
+.blog-div:hover{
     transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /* border: 1px solid rgb(192, 192, 192); */
 }
 
 .more-btn{
-    padding: 4px 10 4px 10px;
+    padding: 4px 4 4px 4px;
+    width: 100%;
+    font-size: 14;
     transition: 0.3s; 
     background-color: #27B5EA;
     color: white;
     border: none;
+}
+
+.more-btn-latest{
+    padding: 4px 10px 4px 10px;
+    font-size: 14;
+    transition: 0.3s; 
+    background-color: #27B5EA;
+    color: white;
+    border: none;
+}
+
+.more-btn-latest:hover{
+    transition: 0.3s; 
+    background-color: rgb(34, 34, 34);
+    color: white;
 }
 
 .more-btn:hover{
@@ -265,10 +293,11 @@ a{
 }
 
 .footer-section{
-    position: fixed;
     bottom: 0;
+    margin-top: 50px;
     background-color: rgb(41, 46, 48); 
     width: 100%; 
+    border-top: solid 4px #FF5050;
 }
 
 .footer{
@@ -276,7 +305,6 @@ a{
     max-width: 1250px;
     margin: 0 auto;
     padding: 10px;
-    margin-top: 4px;
 }
 
 .logo-footer{

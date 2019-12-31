@@ -8,12 +8,12 @@ function posts() {
             return res.json();
         })
         .then(function (results) {
-        var posts = results.length;
-        document.getElementById('total').innerHTML = 'Total Posts: ' + posts;
-        let blogs = '';
-        results.forEach((res) => {
-            let { id, my_blogs, blog_image, blog_date, blog_title } = res;
-            blogs += ` <div>
+            var posts = results.length;
+            document.getElementById('total').innerHTML = 'Total Posts: ' + posts;
+            let blogs = '';
+            results.forEach((res) => {
+                let { id, my_blogs, blog_image, blog_date, blog_title } = res;
+                blogs += ` <div>
                         <h2>${blog_title}</h2>
                         <div class="post-content" value=${id}>
                         ${my_blogs}
@@ -24,18 +24,17 @@ function posts() {
                         <hr>
                     </div>
                     `
-            document.getElementById('get-posts').innerHTML = blogs;
+                document.getElementById('get-posts').innerHTML = blogs;
 
-        })
-    });
+            })
+        });
 }
 
 posts();
 
 function textArea(id) {
-    // var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
+
     var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
-    // var text = document.getElementById(id).value;
     var editBlog = document.getElementById('editor1');
     console.log('test' + text);
     editBlog.innerHTML = text;
@@ -57,8 +56,8 @@ function sendPost() {
     var cat = document.getElementById('category').value;
     console.log('test' + recentPost);
     //check for validation//
-    if (recentPost === '') {
-        alert('Please write something')
+    if (recentPost === "" || date === "" || title === "" || image === "" || cat === "") {
+        alert('Please fill all entries')
     }
 
     //post request if validation is right//
@@ -82,7 +81,7 @@ function sendPost() {
         }).then(function (response) {
             return response.json();
         })
-        alert('Post added!')
+        alert('Post added!');
         posts();
     }
 
@@ -90,14 +89,14 @@ function sendPost() {
 
 //TODO: Post function//
 function updatePost() {
-    // var updatedPost = CKEDITOR.instances.editor1.getData();
     var updatedPost = document.getElementById('editor1').value;
     var updatedImage = document.getElementById('blog-image').value;
     var updatedTilte = document.getElementById('blog-title').value;
     var updatedDate = document.getElementById('blog-date').value;
-    console.log(updatedPost);
-    if (updatedPost === '') {
-        alert('Please write something')
+
+    // check for validations //
+    if (updatedPost === "" || updatedDate === "" || updatedImage === "" || updatedTilte === "") {
+        alert('Please fill all entries');
     }
     //post request if validation is right//
     else {
@@ -127,8 +126,9 @@ function updatePost() {
 
 }
 
-//TODO: Post function//
-function deletePost(value) {
+
+
+function del(value) {
     fetch('/deletepost/' + value, {
         method: 'delete',
         headers: {
@@ -145,5 +145,16 @@ function deletePost(value) {
     posts();
 
 }
+
+//TODO: Post function//
+function deletePost(value) {
+    var erase = confirm("Are you sure you want to erase this post?");
+    if (erase == true) {
+        del(value);
+
+    } else {
+        alert('Post not deleted')
+    };
+};
 
 

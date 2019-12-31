@@ -4,6 +4,7 @@
     flex-direction: row-reverse;
     margin: 0 auto;
     width: 60%;
+    min-width: 640px;
     background-color: rgb(241, 241, 241);
     padding: 20px;
     text-align: center;
@@ -51,16 +52,25 @@
 .blog-div-cat{
     display: flex;
     width: 90%;
+    min-width: 600px;
     margin: 0 auto;
     border: solid 1px rgb(192, 192, 192);
     margin-bottom: 40px;
+    transition: transform .2s;   
 
 }
+
+.blog-div-cat:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
 .blog-img-cat{
     width: 100%;
     max-width: 300px;
     min-width: 300px;
-    height: auto;
+    cursor: pointer;
 
 }
 
@@ -76,6 +86,7 @@
 
 .subtitle{
     text-align: center;
-    color: #27B5EA;
+    color: rgb(134, 134, 134);
+    font-size: 20px;
     padding-top: 20px;
 }
