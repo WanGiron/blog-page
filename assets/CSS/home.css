@@ -98,7 +98,7 @@ a{
 }
 
 .social-media-img{
-    width: 36px;
+    width: 30px;
     margin-top: -7px;
 }
 
@@ -357,5 +357,75 @@ h5{
         flex-direction: column-reverse;
     }
 
+
+
     
 }
+
+@media only screen and (max-width: 540px) {
+
+    .content{
+        margin: 0 auto;
+        display: inline;
+        align-content: center;
+    }
+    .ul-navbar-menu{
+        display: block;
+        width: fit-content;
+        padding: 0px;
+        margin-top: 14px;
+        /* float: none; */
+        /* margin: 0 auto; */
+    }
+    .active-travels, .active-tips, .active-trips{
+        padding: 4px;
+        margin: 10px;
+    }
+    .logo{
+     /* display: block; */
+     width: 70px;
+     padding-bottom: 0px;
+     padding-top: 2px;
+     margin-top: 14px;
+     margin-left: 10px;
+    }
+
+    .li-menu{
+     margin: 5px;
+    }
+
+ .latest-post{
+     margin: 0 auto;
+     margin-top: 20px;
+     width: 100%;
+     border-top: 30px solid #114E65;
+    }
+
+ .div-home-latest{
+    text-align: center;
+    margin-top: 30px;
+    }
+
+ .latest-post-content{
+    width: 100%;
+    }
+
+    .latest-blog-navigation{
+        margin: 0 auto;
+        float: none;
+    }
+ 
+ #posts{
+     width: 100%;
+     min-width: 0px;
+     display: flex;
+     flex-direction: column-reverse;
+    }
+
+    
+ .blog-div{
+     margin: 0 auto;
+     width: 90%;
+     margin-top: 40px;
+    }
+ }

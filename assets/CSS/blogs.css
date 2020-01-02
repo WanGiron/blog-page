@@ -25,7 +25,8 @@
     font-size: 14px;
     padding: 4px;
     margin: 0px;
-    background-color: rgb(41, 41, 41);
+    /* background-color: rgb(41, 41, 41); */
+    background-color: #114E65;
 }
 
 .blog-body-div{
@@ -35,7 +36,6 @@
     font-size: 18px;
     padding-top: 30px;
     color: rgb(70, 70, 70);
-    text-align: justify;
 
 }
 
@@ -62,4 +62,22 @@
     /* border: solid rgb(150, 150, 150) 1px; */
 }
 
+@media only screen and (max-width: 540px) {
+    .category-blog{
+        margin-top: 20px;
+    }
 
+    .more-div{
+        margin: 0 auto;
+        width: 100%;
+
+    }
+
+    .blog-image-more{
+        width: 100%;
+    }
+
+    .blog-body-div{
+        margin: 20px;
+    }
+}
