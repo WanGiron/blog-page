@@ -3,22 +3,31 @@
     height: auto;
     max-width: 1250px;
     margin: 0 auto;
-    margin-top: 50px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     margin-bottom: 100px;
-    padding: 30px;
+}
+
+#my-blog{
+    width: 100%;
 }
 
 .blog-header{
     text-align: center;
-    padding: 10px;
+    margin: 0;
+    padding: 6px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .category-blog{
     text-align: center;
-    color: gray;
-
+    color: rgb(223, 223, 223);
+    font-size: 14px;
+    padding: 4px;
+    margin: 0px;
+    background-color: rgb(41, 41, 41);
 }
+
 .blog-body-div{
     width: 100%;
     margin: 0 auto;

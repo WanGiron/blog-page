@@ -18,7 +18,8 @@ function posts() {
                         <div class="post-content" value=${id}>
                         ${my_blogs}
                         </div>
-                        <span><button id=${id} class="edit-btn" onclick="textArea(this.id)" value=${id}>(Edit)</button> 
+                        <span><button id=${id} class="edit-btn" onclick="editPost(this.id)" value=${id} data-toggle="modal"
+                        data-target="#write-blog">(Edit)</button> 
                         <button class="edit-btn" onclick="deletePost(this.value)" value=${id}>(Delete)</button>
                         </span><p class="date-created">${blog_date}</p>
                         <hr>
@@ -32,8 +33,7 @@ function posts() {
 
 posts();
 
-function textArea(id) {
-
+function editPost(id) {
     var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
     var editBlog = document.getElementById('editor1');
     console.log('test' + text);

@@ -3,6 +3,12 @@ var url_string = window.location.href;
 var url = new URL(url_string);
 var c = url.searchParams.get('value');
 
+
+window.onload = function () {
+    var cat = document.getElementsByClassName('category-blog')[0].innerHTML;
+    console.log(cat);
+ }; 
+
 // TODO get more info from blog //
 function moreInfo() {
 
@@ -19,10 +25,9 @@ function moreInfo() {
             var results = res[0];
             var { id, my_blogs, blog_image, blog_date, blog_title, category } = results;
             var blogs = '';
-            blogs += `<div class="more-div">
-                            <h1 class="blog-header">${blog_title}</h1>
-                            <hr>
-                            <p class="category-blog">--${category}--</p>
+            blogs += `<p class="category-blog">-- ${category} --</p>
+                            <div class="more-div">
+                            <h3 class="blog-header">${blog_title}</h3>
                             <img class="blog-image-more" src="${blog_image}" class="more-img">
                             <div class="blog-body-div">
                                 <p>${my_blogs}</p>

@@ -5,11 +5,11 @@ var contentDiv = document.getElementById('body-blogs-div');
 var url_string = window.location.href;
 var url = new URL(url_string);
 var c = url.searchParams.get('value');
-console.log(c);
+// console.log(c);
 
 // TODO: change page title based on category // 
-var h1 = document.createElement('h1');
-h1.setAttribute('class', 'header');
+var h3 = document.createElement('h3');
+h3.setAttribute('class', 'header');
 var p = document.createElement('p');
 p.setAttribute('class', 'subtitle');
 var traveHeader = document.createTextNode('TRAVELS');
@@ -27,27 +27,27 @@ var styleTrips = document.getElementById('trips');
 function title() {
     switch (c) {
         case 'Travel':
-            h1.appendChild(traveHeader);
+            h3.appendChild(traveHeader);
             p.appendChild(travelSub);
-            contentDiv.prepend(h1);
+            contentDiv.prepend(h3);
             contentDiv.prepend(p);
             //-------------------//
             styleTravels.setAttribute('class', 'active-travels');
             break;
 
         case 'Tips': 
-            h1.appendChild(tipsHeader);
+            h3.appendChild(tipsHeader);
             p.appendChild(tipsSub);
-            contentDiv.prepend(h1);
+            contentDiv.prepend(h3);
             contentDiv.prepend(p);
             //-------------------//
             styleTips.setAttribute('class', 'active-tips');
             break;
 
         case 'Day-trips':           
-            h1.appendChild(trips);
+            h3.appendChild(trips);
             p.appendChild(tripsSub);
-            contentDiv.prepend(h1);
+            contentDiv.prepend(h3);
             contentDiv.prepend(p);
             //-------------------//
             styleTrips.setAttribute('class', 'active-trips');
@@ -73,13 +73,11 @@ function getAll() {
             res.forEach((results) => {
                 let { id, my_blogs, category, blog_image, blog_date, blog_title } = results;
                 blogs += `
-                <div class="blog-div-cat">
-                <img class="blog-img-cat blog-image" src="${blog_image}" id=${id} onClick="moreInfo(this.id)">
-                <div class="blog-body-cat">
-                <h2 class="title-blog">${blog_title}</h2>
-                <hr>
-                <p>${category}</p>
-                <p>${blog_date}</p>
+                <div class="blog-div">
+                <img class="blog-img blog-image" src="${blog_image}" id=${id} onClick="moreInfo(this.id)">
+                <div class="blog-body">
+                <h4 class="title-blog">${blog_title}</h4>
+                <p class="home-date">${blog_date}</p>
                 <button id=${id} class="more-btn" value=${id} onClick="moreInfo(this.value)">Read</button>
                 </div>
                </div>`;

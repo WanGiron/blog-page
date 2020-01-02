@@ -11,12 +11,11 @@ function getPost() {
             data2.forEach((results) => {
                 let { id, my_blogs, category, blog_image, blog_date, blog_title } = results;
                 blogs += `<div class="blog-div">
+                            <h5>${blog_title}</h5>
+                            <p class="home-cat">-- ${category} --</p>
                             <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id)) alt="...">
                             <div class="div-blog-body">
-                            <h5>${blog_title}</h5>
-                            <p class="home-cat">${category}</p>
                             <p class="home-date">${blog_date}</p>
-                            <hr>
                             <button id=${id} class="more-btn" value=${id} onClick=(moreInfo(this.value))>Read</button>
                             </div>
                       </div>`;
@@ -43,22 +42,10 @@ function getPost() {
 
 
 
-
 function moreInfo(value){
 window.location='blogs.html?value='+value;
 
 };
 
 getPost();
-getFeed();
-
-// fot active menu buttons //
-var header = document.getElementById("navigation");
-var btns = header.getElementsByClassName("li-menu");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("li-menu");
-  current[0].className = current[0].className.replace("place", "");
-  this.className += "active";
-  });
-}
+// getFeed();
