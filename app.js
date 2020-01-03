@@ -8,11 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT || 5005;
-// Only for Deployment -HEROKU- Serve up static assets DO NOT TOUCH !!!
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("/assets"));
-// };
+var PORT = process.env.PORT || 80;
 
 // Server //
 var app = express();
@@ -31,33 +27,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
-//Connect to flash//
-
-// app.use(flash());
-
-// app.get('/', function (req, res) {
-//     req.flash('Welcome', 'message testin with flash' );
-//     res.render('/home.html', {
-//       title: 'Home'
-//     })
-//   });
-// app.use(session()); // session middleware
-// app.use(require('flash')());
- 
-// app.use(function (req, res) {
-//   // flash a message
-//   req.flash('info', 'hello!');
-//   next();
-// })
-
-// //Global vars//
-// app.use((req, res, next)=>{
-//     res.locals.success_msg = req.flash('succes_msg');
-//     res.locals.error_msg = req.flash('error_msg');
-//     res.locals.error = req.flash('error');
-//     next();
-// })
 
 
 
@@ -88,7 +57,6 @@ app.get("/travels", (req, res) => {
 
 //-----------------------------------------------//
 
-
 //TODO: create connection to Db MongoDb //
 var mdb = require('./config/keys').MongoURI;
 mongoose.connect(mdb, { useNewUrlParser: true })
@@ -96,28 +64,16 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
+
+//TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Pollito#2',
+    password: 'Nuevavida7',
     database: 'blog'
 });
 
-//TODO: create connection Deployment //
-// var db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'Nuevavida7',
-//     database: 'blog'
-// });
-
 // TODO: create connection to database SQL Heroku //
-// var db = mysql.createConnection({
-//     host: 'g8mh6ge01lu2z3n1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-//     user: 'im52xdsiscbobsda',
-//     password: 'o9x74h3o2ux29vnu',
-//     database: 'j03vt1ym0mqfz9jv'
-// });
 
 db.connect(function (err) {
     if (err) {
@@ -214,7 +170,7 @@ app.post('/user/more-info/:value', function (req, res) {
         if (err) throw err;
         // console.log("this is my result"+JSON.stringify(result));
         res.json(result);
-    })       
+    })
 });
 
 // to get one post from database for users // 
@@ -226,7 +182,7 @@ app.post('/user/all-post-cat/:cat', function (req, res) {
         if (err) throw err;
         // console.log("this is my result"+JSON.stringify(result));
         res.json(result);
-    })       
+    })
 });
 
 //----------------------------------------------------------------//

@@ -5,7 +5,7 @@ function getPost() {
         })
         .then(function (data) {
             // console.log(data);
-            var data2 = data.slice(-4);
+            var data2 = data.slice(-3);
             let blogs = '';
             let latest = '';
             data2.forEach((results) => {
@@ -16,9 +16,10 @@ function getPost() {
                             <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id)) alt="...">
                             <div class="div-blog-body">
                             <p class="home-date">${blog_date}</p>
-                            <button id=${id} class="more-btn" value=${id} onClick=(moreInfo(this.value))>Read</button>
+                            
                             </div>
                       </div>`;
+                    //   <button id=${id} class="more-btn" value=${id} onClick=(moreInfo(this.value))>Read</button> //
                 document.getElementById("posts").innerHTML = blogs;
             });
 

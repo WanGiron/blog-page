@@ -78,10 +78,11 @@ function getAll() {
                 <div class="blog-body">
                 <h4 class="title-blog">${blog_title}</h4>
                 <p class="home-date">${blog_date}</p>
-                <button id=${id} class="more-btn" value=${id} onClick="moreInfo(this.value)">Read</button>
+                
                 </div>
                </div>`;
                 document.getElementById("more-content").innerHTML = blogs;
+                // <button id=${id} class="more-btn" value=${id} onClick="moreInfo(this.value)">Read</button>
             });
 
         })
