@@ -93,7 +93,7 @@ function updatePost() {
     var updatedImage = document.getElementById('blog-image').value;
     var updatedTilte = document.getElementById('blog-title').value;
     var updatedDate = document.getElementById('blog-date').value;
-    var updatedCat = document.getElementById('categgory').value;
+    var updatedCat = document.getElementById('category').value;
 
     // check for validations //
     if (updatedPost === "" || updatedDate === "" || updatedImage === "" || updatedTilte === "") {

@@ -152,6 +152,7 @@ app.post('/updatedpost/:id', function (req, res) {
     res.send('Updated!');
 });
 
+
 // to delete posts to db // 
 app.delete('/deletepost/:id', function (req, res) {
     var sql = `DELETE FROM blog_body WHERE id = ${req.params.id}`;
