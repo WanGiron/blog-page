@@ -139,7 +139,7 @@ app.post('/updatedpost/:id', function (req, res) {
     var post = {
         my_blogs: frontPost.my_blogs,
         blog_title: frontPost.blog_title,
-        Category: frontPost.category,
+        category: frontPost.category,
         blog_date: frontPost.blog_date,
         blog_image: frontPost.blog_image
     };
