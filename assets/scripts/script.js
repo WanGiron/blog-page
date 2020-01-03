@@ -93,6 +93,7 @@ function updatePost() {
     var updatedImage = document.getElementById('blog-image').value;
     var updatedTilte = document.getElementById('blog-title').value;
     var updatedDate = document.getElementById('blog-date').value;
+    var updatedCat = document.getElementById('categgory').value;
 
     // check for validations //
     if (updatedPost === "" || updatedDate === "" || updatedImage === "" || updatedTilte === "") {
@@ -104,7 +105,8 @@ function updatePost() {
             my_blogs: updatedPost,
             blog_image: updatedImage,
             blog_title: updatedTilte,
-            blog_date: updatedDate
+            blog_date: updatedDate,
+            category: updatedCat
         };
 
         fetch('/updatedpost/' + myId[0], {
