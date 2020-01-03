@@ -20,14 +20,15 @@
 }
 
 .category-blog{
+    margin: 0 auto;
     text-align: center;
     font-style: oblique;
     color: rgb(255, 255, 255);
     font-size: 14px;
     padding: 4px;
-    margin: 0px;
-    /* background-color: rgb(41, 41, 41); */
     background-color: #114E65;
+    width: 80%;
+    max-width: 1250px;
 }
 
 .blog-body-div{
@@ -65,6 +66,7 @@
 @media only screen and (max-width: 540px) {
     .category-blog{
         margin-top: 20px;
+        width: 100%;
     }
 
     .more-div{

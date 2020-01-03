@@ -8,7 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT ||80;
+var PORT = process.env.PORT || 80;
 
 // Server //
 var app = express();
@@ -67,7 +67,12 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 // conection to sql // local //
 
 //TODO: create connection Deployment //
-
+var db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
+});
 
 
 // TODO: create connection to database SQL Heroku //
@@ -110,25 +115,6 @@ app.post('/postblog', function (req, res) {
     res.redirect('/admin');
     // res.json(frontPost);
 });
-
-// to insert posts to db with form method // 
-// app.post('/postblog', function (req, res) {
-//     console.log(req.body);
-//     var { my_blogs, blog_title, blog_date, blog_image } = req.body;
-//     // object to be stored in db
-//     var post = {
-//         my_blogs: my_blogs,
-//         blog_title: blog_title,
-//         blog_date: blog_date, 
-//         blog_image: blog_image
-//     }
-//     var sql = 'INSERT INTO blog_body SET ?';
-//     db.query(sql, post, function (err, result) {
-//         if (err) throw err;
-//         // console.log(result);
-//     })
-//     res.json('done');
-// });
 
 // to insert updated posts to db // 
 app.post('/updatedpost/:id', function (req, res) {

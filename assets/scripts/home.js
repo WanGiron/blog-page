@@ -11,9 +11,9 @@ function getPost() {
             data2.forEach((results) => {
                 let { id, my_blogs, category, blog_image, blog_date, blog_title } = results;
                 blogs += `<div class="blog-div">
-                            <h5>${blog_title}</h5>
                             <p class="home-cat">-- ${category} --</p>
                             <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id)) alt="...">
+                            <h5>${blog_title}</h5>        
                             <div class="div-blog-body">
                             <p class="home-date">${blog_date}</p>
                             

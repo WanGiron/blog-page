@@ -7,6 +7,7 @@
     max-width: 1250px;
 }
 
+
 .active-travels{
     background-color:#27B5EA ;
     color: white;
@@ -78,21 +79,22 @@
 }
 
 .subtitle{
+    margin: 0 auto;
     text-align: center;
     font-style: oblique;
     color: rgb(255, 255, 255);
     font-size: 14px;
     padding: 4px;
-    margin: 0px;
-    /* background-color: rgb(41, 41, 41); */
     background-color: #114E65;
-    
+    width: 80%;
+    max-width: 1250px;   
 }
 
 
 @media only screen and (max-width: 540px) {
     .subtitle{
         margin-top: 20px;
+        width: 100%;
     }
 
     #more-content{

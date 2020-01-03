@@ -1,7 +1,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(251, 251, 251);
 }
 a{
     color: rgb(70, 70, 70);
@@ -115,7 +115,8 @@ a{
 
 .img-div{
     margin: 0 auto;
-    /* background-image: url("WNP_9594.jpg"); */
+    /* border-top: solid 4px #FF5050; */
+    border-bottom:solid 4px rgb(248, 248, 248);
     background-size: cover;
     background-position: 50% 50%;
     width: 100%;
@@ -158,6 +159,7 @@ a{
 
 .welcome-message{
     font-weight: lighter;
+    font-style: normal;
 }
 
 .latest-content-header{
@@ -207,24 +209,24 @@ h5{
 }
 
 .home-cat, .home-date{
-    color: rgb(41, 41, 41);
+    color: rgb(53, 53, 53);
     margin-bottom: 4px;
     font-size: 12px;
-    background-color: rgb(247, 247, 247);
 }
 
 
 .blog-image{
     width: 100%;
+    height: 220px;
+    object-fit: cover;
     cursor: pointer;
     padding-bottom: 3px;
 
 }
 
 .blog-div:hover{
-    /* transform: scale(1.1); */
+    transform: scale(1.01);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* border: 1px solid rgb(192, 192, 192); */
 }
 
 .more-btn{
@@ -258,9 +260,7 @@ h5{
 .more-btn:hover{
     transition: 0.3s; 
     background-color: rgb(34, 34, 34);
-    color: white;
-    /* border: solid 3px rgb(34, 34, 34); */
-    
+    color: white;    
 }
 
 .instagram-section{
@@ -385,6 +385,10 @@ h5{
     .active-travels, .active-tips, .active-trips{
         padding: 4px;
         margin: 10px;
+    }
+
+    .img-div{
+        border-top: 0px;
     }
     .logo{
      /* display: block; */
