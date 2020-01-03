@@ -8,7 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT ||80;
 
 // Server //
 var app = express();
@@ -64,8 +64,15 @@ mongoose.connect(mdb, { useNewUrlParser: true })
     .catch(err => console.log(err));
 
 //TODO: create connection to database SQL Local //
+// conection to sql // local //
 
 //TODO: create connection Deployment //
+var db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
+});
 
 
 // TODO: create connection to database SQL Heroku //
