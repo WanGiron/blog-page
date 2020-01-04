@@ -194,7 +194,6 @@ a{
 
 
 .img-about{
-    display: block;
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -205,7 +204,6 @@ a{
 
 .about-categories{
     width: 100%;
-    /* border-top: 1px solid rgb(180, 180, 180); */
     padding-top:20px;
 }
 
@@ -419,15 +417,16 @@ h5{
 }
 
 .footer-section{
-    bottom: 0;
     margin-top: 50px;
     background-color: rgb(41, 41, 41); 
-    width: 100%; 
+    width: 80%;
+    max-width: 1250;
+    margin: 0 auto;
+    margin-top: 40px;
 }
 
 .footer{
-    width: 80%;
-    max-width: 1250px;
+    width: 100%;
     margin: 0 auto;
     padding: 10px;
 }
