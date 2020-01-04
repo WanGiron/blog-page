@@ -230,6 +230,7 @@ a{
 .email-registry-list{
     margin: 0 auto;
     width: 80%;
+    max-width: 1250px;
     margin-top: 40px;
 }
 
@@ -259,6 +260,7 @@ a{
     height: content;
     margin: 0 auto;
     width: 80%;
+    max-width: 1250px;
     /* background-color: rgb(255, 255, 255); */
     /* margin: 0 auto; */
     margin-top: 40px;
