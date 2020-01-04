@@ -4,9 +4,8 @@ body{
     /* font-family: 'Great Vibes', cursive; */
     font-family: 'Jaldi', serif;
     /* font-weight: lighter; */
-    font-size: 19px;
+    font-size: 18px;
     background-color: rgb(251, 251, 251);
-    letter-spacing: 1.2px;
 }
 
 h1, h2, h3, h4, h5{
@@ -101,16 +100,10 @@ a{
     /* padding-bottom: 0px; */
     color: white;
 }
-.latest-post{
-    display: flex;
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 .latest-post-content{
     float: none;
-    width: 100%;
+    width: 80%;
     max-width: 1250px;
     margin: 0 auto;
     background-color: #114E65;
@@ -120,7 +113,7 @@ a{
 
 .social-media-img{
     width: 30px;
-    /* margin-top: 5px; */
+    margin-top: -7px;
     /* background-color: rgb(68, 67, 67); */
 }
 
@@ -151,13 +144,6 @@ a{
     padding: 20px;
 }
 
-.register{
-    padding: 20px;
-    background-color: #27B5EA;
-    border: 0px;
-    color: white;
-}
-
 .div-home-latest{
     text-align: right;
     padding: 10px;
@@ -181,39 +167,9 @@ a{
     float: none;
 }
 
-.about-me{
-    display: flex;
-    width: 80%;
-    max-width: 1250px;
-    margin: 0 auto;
-    border-bottom: 1px solid rgb(180, 180, 180);
-    padding-top: 20px;
-    /* margin-bottom: 30px; */
-    margin-top: 20px;
-}
-
-
-.img-about{
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-left: 20px;
-    margin-bottom: 20px; 
-}
-
-.about-categories{
-    width: 100%;
-    /* border-top: 1px solid rgb(180, 180, 180); */
-    padding-top:20px;
-}
-
-.li-menu-about{
-    width: fit-content;
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 10px;
+.message{
+    padding: 30px;
+    text-align: center;
 }
 
 .welcome-message{
@@ -227,41 +183,13 @@ a{
     margin-top: 50px;
 }
 
-.email-registry-list{
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 40px;
-}
-
-.register{
-    display: block;
-    margin: 0 auto;
-    /* max-width: 400px; */
-    border: solid rgb(201, 201, 201) 1px;
-    height: auto;
-}
-
-.email-list-btn:hover{
-    transition: 0.3s; 
-    background-color: #FF5050;
-    /* padding-bottom: 0px; */
-    color: white;
-}
-
-
-.header-welcome{
-    color: #FF5050;
-}
-
-
-
 #posts-section{
     height: content;
     margin: 0 auto;
     width: 80%;
     /* background-color: rgb(255, 255, 255); */
     /* margin: 0 auto; */
-    margin-top: 40px;
+    margin-top: 10px;
     /* padding: 10px; */
 }
 
@@ -275,7 +203,7 @@ a{
 }
 
 .blog-div{
-    margin-top: 10px;
+    margin-top: 20px;
     width: 32%;
     height: auto;
     text-align: center;

@@ -54,6 +54,11 @@ app.get("/travels", (req, res) => {
     res.sendFile(path.join(__dirname, "/assets/admin.html"));
 });
 
+// Travels route //
+app.post("/users/register/email-list", (req, res) => {
+    res.send("coming soon!");
+});
+
 
 //-----------------------------------------------//
 

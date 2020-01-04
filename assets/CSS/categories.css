@@ -1,3 +1,22 @@
+body{
+    /* font-family: 'Shadows Into Light', cursive; */
+    /* font-family: 'Acme', sans-serif; */
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: 'Jaldi', serif;
+    /* font-weight: lighter; */
+    font-size: 18px;
+    background-color: rgb(251, 251, 251);
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Acme', sans-serif;
+    /* font-family: 'Shadows Into Light', cursive; */
+    /* font-family: 'Acme', sans-serif; */
+    /* font-family: 'Great Vibes', cursive; */
+    /* font-family: 'Alice', serif; */
+    /* font-weight: lighter; */
+}
+
 #more-content{
     margin: 0 auto;
     display: flex;
