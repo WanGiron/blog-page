@@ -70,7 +70,8 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    
+    password: 'Pollito#2',
+    database: 'blog'
 });
 
 

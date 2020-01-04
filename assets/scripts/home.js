@@ -37,7 +37,7 @@ function getPost() {
                         </div>`;
             document.getElementById("latest-post-home").innerHTML = latest;
             // home image based on latest post image // 
-            document.getElementById("img-div").style.backgroundImage = `url(${last.blog_image})`;
+            // document.getElementById("img-div").style.backgroundImage = `url(${last.blog_image})`;
 
         });
 };

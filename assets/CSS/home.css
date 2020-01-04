@@ -115,7 +115,7 @@ a{
 
 .img-div{
     margin: 0 auto;
-    /* border-top: solid 4px #FF5050; */
+    background-image: url('../Images/homepage.jpg');
     border-bottom:solid 4px rgb(248, 248, 248);
     background-size: cover;
     background-position: 50% 50%;
