@@ -16,9 +16,10 @@ function getPost() {
                             <h5>${blog_title}</h5>        
                             <div class="div-blog-body">
                             <p class="home-date">${blog_date}</p>
-                            
                             </div>
-                      </div>`;
+                            <hr class="hr-blogs-home">
+                      </div>
+                      `;
                     //   <button id=${id} class="more-btn" value=${id} onClick=(moreInfo(this.value))>Read</button> //
                 document.getElementById("posts").innerHTML = blogs;
             });

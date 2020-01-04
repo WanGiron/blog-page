@@ -4,11 +4,6 @@ var url = new URL(url_string);
 var c = url.searchParams.get('value');
 
 
-window.onload = function () {
-    var cat = document.getElementsByClassName('category-blog')[0].innerHTML;
-    console.log(cat);
- }; 
-
 // TODO get more info from blog //
 function moreInfo() {
 

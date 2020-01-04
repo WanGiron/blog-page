@@ -80,6 +80,7 @@ function getAll() {
                 <p class="home-date">${blog_date}</p>
                 
                 </div>
+                <hr class="hr-blogs-home">
                </div>`;
                 document.getElementById("more-content").innerHTML = blogs;
                 // <button id=${id} class="more-btn" value=${id} onClick="moreInfo(this.value)">Read</button>

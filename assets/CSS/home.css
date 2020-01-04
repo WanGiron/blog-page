@@ -212,6 +212,7 @@ h5{
     color: rgb(53, 53, 53);
     margin-bottom: 4px;
     font-size: 12px;
+    background-color: rgb(251, 251, 251);
 }
 
 
@@ -240,6 +241,10 @@ h5{
     padding-bottom: 3px;
     border: none;
     margin-bottom: 0;
+}
+
+.hr-blogs-home{
+    display: none;
 }
 
 .more-btn-latest{
@@ -388,7 +393,8 @@ h5{
     }
 
     .img-div{
-        border-top: 0px;
+        border-top: 4px solid white;
+        height: 300px;
     }
     .logo{
      /* display: block; */
@@ -423,6 +429,10 @@ h5{
         margin: 0 auto;
         float: none;
     }
+
+    .hr-blogs-home{
+        display: block;
+    }
  
  #posts{
      width: 100%;
@@ -435,6 +445,6 @@ h5{
  .blog-div{
      margin: 0 auto;
      width: 90%;
-     margin-top: 40px;
+     margin-top: 20px;
     }
  }
