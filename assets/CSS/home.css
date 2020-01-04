@@ -534,4 +534,34 @@ h5{
      width: 90%;
      margin-top: 20px;
     }
+
+    .about-me{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .img-about{
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .latest-post{
+        display: none;
+    }
+
+    .email-list-btn{
+        background-color: white;
+    }
+
+    .header-welcome{
+        text-align: center;
+    }
+
+    .about-categories{
+        display: none;
+    }
  }
