@@ -18,8 +18,7 @@ function posts() {
                         <div class="post-content" value=${id}>
                         ${my_blogs}
                         </div>
-                        <span><button id=${id} class="edit-btn" onclick="editPost(this.id)" value=${id} data-toggle="modal"
-                        data-target="#write-blog">(Edit)</button> 
+                        <span><button id=${id} class="edit-btn" onclick="editPost(this.id)" value=${id}>(Edit)</button> 
                         <button class="edit-btn" onclick="deletePost(this.value)" value=${id}>(Delete)</button>
                         </span><p class="date-created">${blog_date}</p>
                         <hr>
@@ -35,9 +34,10 @@ posts();
 
 function editPost(id) {
     var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;
-    var editBlog = document.getElementById('editor1');
+    CKEDITOR.instances.editor1.setData(text);
+    // var editBlog = document.getElementById('editor1');
     console.log('test' + text);
-    editBlog.innerHTML = text;
+    // editBlog.innerHTML = text;
     document.getElementById('update-btn').style.display = 'inline-block';
     document.getElementById('submit-btn').style.display = 'none';
     console.log(text);
@@ -49,7 +49,8 @@ function editPost(id) {
 
 //TODO: Post function//
 function sendPost() {
-    var recentPost = document.getElementById('editor1').value;
+    // var recentPost = document.getElementById('editor1').value;
+    var recentPost = CKEDITOR.instances.editor1.getData();
     var date = document.getElementById('blog-date').value;
     var title = document.getElementById('blog-title').value;
     var image = document.getElementById('blog-image').value;
@@ -89,7 +90,8 @@ function sendPost() {
 
 //TODO: Post function//
 function updatePost() {
-    var updatedPost = document.getElementById('editor1').value;
+    // var updatedPost = document.getElementById('editor1').value;
+    var updatedPost = CKEDITOR.instances.editor1.getData();
     var updatedImage = document.getElementById('blog-image').value;
     var updatedTilte = document.getElementById('blog-title').value;
     var updatedDate = document.getElementById('blog-date').value;

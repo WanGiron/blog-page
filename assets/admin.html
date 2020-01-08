@@ -21,12 +21,52 @@
         crossorigin="anonymous"></script>
     <!-- style css file -->
     <link rel="stylesheet" href="/CSS/style.css">
+    <!-- CKEDITOR -->
+    <!-- <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery/3.1.0/jquery.min.js"> </script> -->
+    <script src="./ckeditor/ckeditor.js"></script>
     <!-- JavaScript file -->
     <script src="./scripts/script.js"></script>
     <title>Blog-admin</title>
 </head>
 
 <body>
+
+    <form class="row col-10 form-body">
+        <div class="row-input col-12 form-group">
+            <label for="blog-image">Paste image URL link here</label>
+            <input name="image" id="blog-image" class="col-12 form-control"
+                placeholder="Paste image URL here"></input>
+        </div>
+        <div class="row-input col-12 form-group">
+            <label for="blog-title">Write your blog title</label>
+            <input name="title" id="blog-title" class="col-12 form-control"
+                placeholder="Write your blog title"></input>
+        </div>
+        <div class="row-input col-12 form-group">
+            <label for="category">Select category</label>
+            <select name="category" id="category" class="col-12 form-control">
+                <option value="Travel">Travel</option>
+                <option value="Day-trips">Day-trips</option>
+                <option value="Tips">Tips</option>
+            </select>
+        </div>
+        <div class="row-input col-12 form-group">
+            <label for="blog-date">Write your blog's date</label>
+            <input name="date" id="blog-date" class="col-12 form-control" type="date"
+                placeholder="Date"></input>
+        </div>
+        <div class="row-input col-12 form-group">
+            <label for="editor1">Write your blog</label>
+            <textarea name="myextarea" id="editor1" class="col-12 form-control" cols="30" rows="6"
+                placeholder="write your blog"></textarea>
+        </div>
+        <div class="row-button">
+            <button id="submit-btn" onclick="sendPost()" class="my-button">Submit</button>
+            <button id="update-btn" onclick="updatePost()" style="display:none"
+                class="my-button">Update</button>
+        </div>
+    </form>
     <h2 class="main-header">Blog administrator</h2>
     <div class="container">
         <div class="row row-content-flex">
@@ -37,8 +77,7 @@
             </div>
             <div class="col-md-4 my-info-area col-sm-12">
                 <div class="admin-area">
-                    <img src="/Images/WNP_0002.jpg"
-                        style="width:150px" class="thumbnail-img" alt="image">
+                    <img src="/Images/WNP_0002.jpg" style="width:150px" class="thumbnail-img" alt="image">
                     <h2 class="info-area-font">Lady</h2>
                     <p class="info-area-font" id="total"></p>
                     <hr>
@@ -105,6 +144,9 @@
                 </div>
             </div>
         </div>
+    </div>
 </body>
-
+<script>
+    CKEDITOR.replace('editor1');
+</script>
 </html>

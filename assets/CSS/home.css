@@ -120,8 +120,6 @@ a{
 
 .social-media-img{
     width: 30px;
-    /* margin-top: 5px; */
-    /* background-color: rgb(68, 67, 67); */
 }
 
 /* .social-media{
@@ -151,11 +149,31 @@ a{
     padding: 20px;
 }
 
+
+#more-info-latest-blog{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .register{
+    display: block;
+    width: 50%;
     padding: 20px;
     background-color: #27B5EA;
     border: 0px;
     color: white;
+}
+
+.send-me-email{
+    display: inline-block;
+    width: 50%;
+    padding: 70px 0;
+    padding-left: 20px;
+    /* color: white; */
+    background-color: rgb(226, 226, 226);
+    /* background-color: #27B5EA; */
+    /* border-left: solid white 1px; */
+    /* border-left: solid rgb(141, 141, 141) 1px; */
 }
 
 .div-home-latest{
@@ -232,13 +250,6 @@ a{
     margin-top: 40px;
 }
 
-.register{
-    display: block;
-    margin: 0 auto;
-    /* max-width: 400px; */
-    border: solid rgb(201, 201, 201) 1px;
-    height: auto;
-}
 
 .email-list-btn:hover{
     transition: 0.3s; 
@@ -564,5 +575,23 @@ h5{
 
     .about-categories{
         display: none;
+    }
+
+    .email-registry-list{
+        width: 100%;
+    }
+
+    .register{
+        width: 100%;
+    }
+    
+    .send-me-email{
+        width: 100%;
+        padding: 40px 0;
+        padding: 20px;
+    }
+
+    .footer-section{
+        width: 100%;
     }
  }
