@@ -13,15 +13,15 @@ function posts() {
             let blogs = '';
             results.forEach((res) => {
                 let { id, my_blogs, blog_image, blog_date, blog_title } = res;
-                blogs += ` <div>
-                        <h2>${blog_title}</h2>
+                blogs += ` <div class="nav-blogs">
+                        <h5 class="blog-title">${blog_title}</h5>
                         <div class="post-content" value=${id}>
                         ${my_blogs}
                         </div>
                         <span><button id=${id} class="edit-btn" onclick="editPost(this.id)" value=${id}>(Edit)</button> 
                         <button class="edit-btn" onclick="deletePost(this.value)" value=${id}>(Delete)</button>
-                        </span><p class="date-created">${blog_date}</p>
-                        <hr>
+                        </span>
+                        <p class="date-created">${blog_date}</p>
                     </div>
                     `
                 document.getElementById('get-posts').innerHTML = blogs;
@@ -30,7 +30,29 @@ function posts() {
         });
 }
 
+function subscribers() {
+    fetch("/get/subs/email/list")
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (results) {
+            let subs = results.length;
+            let emailList = '';
+            document.getElementById('total-subs').innerHTML = 'Subscribed: ' + subs;
+            results.forEach((res) => {
+                let { id, email} = res;
+                emailList += `<div value=${id}>
+                           <p>${email}</P>
+                          </div>
+                        `
+                document.getElementById('subscribers-div').innerHTML = emailList;
+
+            })
+        });
+}
+
 posts();
+subscribers();
 
 function editPost(id) {
     var text = document.getElementById(id).parentElement.previousElementSibling.innerHTML;

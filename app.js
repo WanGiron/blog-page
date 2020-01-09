@@ -54,11 +54,6 @@ app.get("/travels", (req, res) => {
     res.sendFile(path.join(__dirname, "/assets/admin.html"));
 });
 
-// Travels route //
-app.post("/users/register/email-list", (req, res) => {
-    res.send("coming soon!");
-});
-
 
 //-----------------------------------------------//
 
@@ -138,6 +133,32 @@ app.post('/updatedpost/:id', function (req, res) {
         // console.log(result);
     })
     res.send('Updated!');
+});
+
+// Subscribers route //
+app.post("/users/register/email-list", (req, res) => {
+    var subs = req.body;
+    var emailSubs = {
+        email: subs.email
+    }
+    var sql = 'INSERT INTO subscribers SET ?';
+    db.query(sql, emailSubs, function (err, result){
+        if(err){
+            console.log(err)
+        };
+        
+    })
+    res.redirect('/');
+});
+
+// TO get subscribers list to admin site //
+app.get("/get/subs/email/list", function(req, res){
+    var sql = 'SELECT * FROM subscribers';
+    db.query(sql, function (err, results) {
+        if (err) throw err;
+        res.json(results);
+    });
+    
 });
 
 
