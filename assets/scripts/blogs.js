@@ -29,7 +29,7 @@ function moreInfo() {
                             </div>
                             <hr>
                             <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}">
-                            <img src="../images/shareBtn.png" class="share"><span class="share-text">Share</span></a>
+                            <img src="../Images/shareBtn.png" class="share"><span class="share-text">Share</span></a>
                             <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>`;
             document.getElementById("my-blog").innerHTML = blogs;

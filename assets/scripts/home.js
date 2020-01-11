@@ -35,8 +35,8 @@ function getPost() {
                         <p>${category}</p>
                         <p class="latest-blog-date">${dateFormat(blog_date)}</p>
                         <p class="read-more">Read more <button id=${id} class="more-btn-latest" value=${id} onClick=(moreInfo(this.value))>Go</button></p>
-                        <p class="share">Follow me! <a href="https://www.instagram.com/totsandtravel/"><img src="Images/instalogo.png" class="social-media-img" alt="pic" /></a></p>
-                        <p class="share">Share <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}"><img class="social-media-img" src="../images/facelogo.png"/></a></p>
+                        <p class="share">Follow me! <a href="https://www.instagram.com/totsandtravel/"><img src="../Images/instalogo.png" class="social-media-img" alt="pic" /></a></p>
+                        <p class="share">Share <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}"><img class="social-media-img" src="../Images/facelogo.png"/></a></p>
                         </div>
                         </div>`;
             document.getElementById("latest-post-home").innerHTML = latest;
