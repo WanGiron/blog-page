@@ -69,8 +69,8 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 //TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'Nuevavida7',
+    user: '',
+    password: '',
     database: 'blog'
 });
 
