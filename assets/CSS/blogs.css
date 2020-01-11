@@ -60,10 +60,12 @@ h1, h2, h3, h4, h5{
 }
 
 .date-created{
-    text-align: right;
+    display: inline-block;
+    width: fit-content;
     margin-bottom: 4px;
-    color: rgb(153, 153, 153);
-    padding: 5px;
+    color: rgb(114, 114, 114);
+    padding-left: 6px;
+    border-left: solid 1px rgb(153, 153, 153);
 }
 .blog-image-more{
     width: 100%;
@@ -81,6 +83,21 @@ h1, h2, h3, h4, h5{
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /* border: solid rgb(150, 150, 150) 1px; */
 }
+
+.share{
+    width: 30px;
+    padding-left: 4px;
+}
+
+span{
+    color:rgb(114, 114, 114);
+}
+
+.shate-text{
+    color: rgb(114, 114, 114);
+    font-size: 13px;
+}
+
 
 @media only screen and (max-width: 540px) {
     .category-blog{

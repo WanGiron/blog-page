@@ -2,7 +2,7 @@ var express = require('express');
 var mysql = require('mysql');
 var path = require("path");
 var mongoose = require('mongoose');
-var flash = require('connect-flash');
+var webpush = require('web-push');
 var session = require('express-session');
 var passport = require('passport');
 
@@ -136,29 +136,41 @@ app.post('/updatedpost/:id', function (req, res) {
 });
 
 // Subscribers route //
-app.post("/users/register/email-list", (req, res) => {
-    var subs = req.body;
-    var emailSubs = {
-        email: subs.email
-    }
-    var sql = 'INSERT INTO subscribers SET ?';
-    db.query(sql, emailSubs, function (err, result){
-        if(err){
-            console.log(err)
+app.post("/email/list/subs", (req, res) => {
+    var multiple = `SELECT * FROM subscribers WHERE email = "${req.body.email}"`;
+    db.query(multiple, function (err, emailRes) {
+        if (err) throw (err);
+        var subs = req.body;
+        var emailSubs = {
+            email: subs.email
         };
-        
+        if (emailRes == '') {
+            var sql = 'INSERT INTO subscribers SET ?';
+            db.query(sql, emailSubs, function (err, result) {
+                if (err) {
+                    console.log(err)
+                };
+                res.send('Subscribe');
+                // res.json({success: true});
+            })
+            
+        }
+        else {
+            res.send('Already subscribed');
+            // res.json({success: false});
+        }
     })
-    res.redirect('/');
 });
 
+
 // TO get subscribers list to admin site //
-app.get("/get/subs/email/list", function(req, res){
+app.get("/get/subs/email/list", function (req, res) {
     var sql = 'SELECT * FROM subscribers';
     db.query(sql, function (err, results) {
         if (err) throw err;
         res.json(results);
     });
-    
+
 });
 
 

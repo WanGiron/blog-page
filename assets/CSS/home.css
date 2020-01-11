@@ -55,7 +55,7 @@ a{
     float: left;
     margin-left: 18px;
     cursor: pointer;
-    padding: 4px;
+    padding: 2px;
     /* padding-bottom: 0px; */
 }
 
@@ -120,6 +120,7 @@ a{
 
 .social-media-img{
     width: 30px;
+    /* border-radius: 50%; */
 }
 
 /* .social-media{
@@ -141,12 +142,6 @@ a{
     background-position: 50% 50%;
     width: 100%;
     height: 500px;
-}
-
-.latest-blog-navigation{
-    float: right;
-    width: fit-content;
-    padding: 20px;
 }
 
 
@@ -171,14 +166,18 @@ a{
     padding-left: 20px;
     /* color: white; */
     background-color: rgb(226, 226, 226);
-    /* background-color: #27B5EA; */
-    /* border-left: solid white 1px; */
-    /* border-left: solid rgb(141, 141, 141) 1px; */
 }
 
 .div-home-latest{
     text-align: right;
-    padding: 10px;
+    width: fit-content;
+    max-width: 220px;
+    height: 100%;
+    float: right;
+    padding: 20px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    /* background-color: rgba(0, 0, 0, 0.281); */
 }
 
 .latest-blog-title, .latest-blog-date{
@@ -186,8 +185,7 @@ a{
 }
 
 .latest-blog-title{
-    /* font-family: Verdana; */
-    font-size: 40px;
+    color: white;
 }
 
 
@@ -226,6 +224,7 @@ a{
 }
 
 .li-menu-about{
+    padding: 2px;
     width: fit-content;
     float: left;
     margin-right: 15px;
@@ -235,6 +234,8 @@ a{
 .welcome-message{
     font-weight: lighter;
     font-style: normal;
+    width: 100%;
+    padding-right: 20px;
 }
 
 .latest-content-header{
@@ -334,11 +335,21 @@ h5{
     font-size: 14;
     transition: 0.3s; 
     background-color: #27B5EA;
-    /* border: solid 3px #27B5EA; */
     color: rgb(255, 255, 255);
     padding-bottom: 3px;
     border: none;
-    margin-bottom: 0;
+}
+
+.read-more, .share{
+    text-decoration: none;
+    color: rgb(218, 218, 218);
+    text-shadow: -1px 1px 0 #000;
+    font-size: 14px;
+
+}
+
+.share:hover{
+    text-decoration: none;
 }
 
 .hr-blogs-home{
@@ -346,12 +357,15 @@ h5{
 }
 
 .more-btn-latest{
-    padding: 4px 10px 4px 10px;
+    height: 30px;
+    width: 30px;
+    margin-top: 170px;
     font-size: 14;
     transition: 0.3s; 
     background-color: #27B5EA;
     color: white;
     border: none;
+    border-radius: 50%;
 }
 
 .more-btn-latest:hover{
@@ -366,46 +380,6 @@ h5{
     color: white;    
 }
 
-.instagram-section{
-    position: absolute;
-    margin-top: 300px;
-    background-color: #FF5050;
-    width: 100%;
-    height: 500px;
-    padding-bottom: 50px;
-}
-
-#instagram-feed{
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
-    max-width: 1250px;
-    height: fit-content;
-    padding: 10px;
-    background-color: white;
-    border: 1px gray solid;
-}
-
-.insta-feed-img{
-    width: 100%;
-    max-width: 250px;
-    height: 100%;
-    padding: 5px;
-    transition: transform .2s;
-}
-
-.insta-feed-img:hover{
-    transform: scale(1.1);
-}
-
-.insta-content{
-    position: relative;
-    margin-top: -200px;
-    padding-bottom: 150px;
-}
-
 
 .img-logo{
     width: 50px;
@@ -415,16 +389,6 @@ h5{
     width: 300px;
     border-left: 1px solid gray;
     padding-left: 5px;
-}
-
-.instagram-title{
-    width: 80%;
-    max-width: 1250px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 10px;
-    border: 1px solid gray;
-    border-bottom: none;
 }
 
 .footer-section{
@@ -515,18 +479,13 @@ h5{
      border-top: 30px solid #114E65;
     }
 
- .div-home-latest{
-    text-align: center;
-    margin-top: 30px;
-    }
 
  .latest-post-content{
     width: 100%;
     }
 
     .latest-blog-navigation{
-        margin: 0 auto;
-        float: none;
+        width: content;
     }
 
     .hr-blogs-home{

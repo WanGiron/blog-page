@@ -73,9 +73,6 @@
                 <a href="/categories.html?value=Day-trips">
                     <p class="option3-li li-menu-about">Day trips</p>
                 </a>
-                <a href="https://www.instagram.com/totsandtravel/">
-                    <img src="Images/logo-insta.png" class="social-media-img" alt="pic" />
-                </a>
             </div>
 
         </div>
@@ -91,13 +88,13 @@
     <div class="email-registry-list">
         <h2 class="header-welcome">Contact Me</h2>
         <div id="more-info-latest-blog">
-            <form class="register" action="/users/register/email-list" method="POST" onSubmit="alert('Thank you! You are now subscribed!');">
+            <form class="register" action="/email/list/subs" method="POST">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Subscribe for latest post</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
-                        placeholder="Enter email">
+                        placeholder="Enter email" required>
                 </div>
-                <button type="submit" class="email-list-btn">Submit</button>
+                <button id="submit" type="submit" value="submit" class="email-list-btn">Submit</button>
             </form>
             <div class="send-me-email">
                 <h3>Do you have any questions?</h3>

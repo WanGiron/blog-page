@@ -28,7 +28,9 @@ function moreInfo() {
                                 <p>${my_blogs}</p>
                             </div>
                             <hr>
-                            <p class="date-created">${blog_date}</p>                       
+                            <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}">
+                            <img src="../images/shareBtn.png" class="share"><span class="share-text">Share</span></a>
+                            <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>`;
             document.getElementById("my-blog").innerHTML = blogs;
         });
@@ -39,6 +41,28 @@ function modal(id) {
     img.setAttribute('src', id);
     var div = document.getElementById('modal-img');
     div.appendChild(img);
+}
+
+// Format date //
+let months = {
+    '01': "January",
+    '02': "February",
+    '03': "March",
+    '04': "April",
+    '05': "May",
+    '06': "June",
+    '07': "July",
+    '08': "August",
+    '09': "September",
+    '10': "October",
+    '11': "November",
+    '12': "December"
+}
+
+
+function dateFormat(blog_date) {
+    let d = blog_date.split('-');
+    return `${months[d[1]]} ${d[2]}, ${d[0]} `;
 }
 
 moreInfo();
