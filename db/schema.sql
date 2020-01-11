@@ -13,4 +13,10 @@ CREATE TABLE blog_body(
   PRIMARY KEY (id)
 );
 
+CREATE TABLE subscribers(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  email VARCHAR(100),
+  PRIMARY KEY (id)
+);
+
 SELECT  *from blog_body;
