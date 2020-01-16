@@ -8,7 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT || 5005;
+var PORT = process.env.PORT || 80;
 
 // Server //
 var app = express();
@@ -69,9 +69,9 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 //TODO: create connection Deployment //
 var db = mysql.createConnection({
     host: 'localhost',
-    user: '',
-    password: '',
-    database: ''
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
 });
 
 
@@ -184,6 +184,7 @@ app.delete('/deletepost/:id', function (req, res) {
     res.send('Updated!');
 });
 
+
 // to get one post from database for users // 
 app.post('/user/more-info/:value', function (req, res) {
     // console.log("this is the body" + req.params.value);
@@ -208,14 +209,12 @@ app.post('/user/all-post-cat/:cat', function (req, res) {
 
 
 //TODO add comments to blogs//
-
-
 app.post("/add/comments", function (req, res) {
     // console.log("this is the body" + req.params.id);
     let cleanName = req.body.name;
     let cleanComment = req.body.comment;
-    cleanName = cleanName.replace(/[^a-zA-Z0-9]/g, '');
-    cleanComment = cleanComment.replace(/[^a-zA-Z0-9]/g, '');
+    cleanName = cleanName.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    cleanComment = cleanComment.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
 
     var newComment = {
         blog_id: req.body.val,
@@ -231,14 +230,25 @@ app.post("/add/comments", function (req, res) {
     })
 });
 
+//TODO get comments //
 app.get('/get/comments/blogs/:id', function(req, res){
-    var sql = `SELECT *FROM comments WHERE blog_id = "${req.params.id}"`;
+    var sql = `SELECT *FROM comments WHERE blog_id = ${req.params.id}`;
     db.query(sql, function(err, results){
         if(err) throw err;
         res.json(results);
     })
 })
 
+// to delete comments to db // 
+app.delete('/deletepost/comments/:id', function (req, res) {
+    console.log('this is the body' + req.params.id);
+    var sql = `DELETE FROM comments WHERE id = ${req.params.id}`;
+    db.query(sql, function (err, result) {
+        if (err) throw err;
+        // console.log(result);
+    })
+    res.send('Updated!');
+});
 //----------------------------------------------------------------//
 
 // TODO: to authenticate admin page //

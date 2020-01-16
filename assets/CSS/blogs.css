@@ -88,6 +88,7 @@ h1, h2, h3, h4, h5{
 
 #new-comments{
     width: 70%;
+    max-width: 1250px;
     margin: 0 auto;
     padding-bottom: 40px;
 }

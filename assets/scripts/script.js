@@ -20,6 +20,8 @@ function posts() {
                         </div>
                         <span><button id=${id} class="edit-btn" onclick="editPost(this.id)" value=${id}>(Edit)</button> 
                         <button class="edit-btn" onclick="deletePost(this.value)" value=${id}>(Delete)</button>
+                        <button class="edit-btn" data-toggle="modal"
+                        data-target="#comments-modal" id=${id} onClick="getComments(this.id)">(Comments)</button>
                         </span>
                         <p class="date-created">${blog_date}</p>
                     </div>
@@ -30,6 +32,7 @@ function posts() {
         });
 }
 
+//get subscribers list //
 function subscribers() {
     fetch("/get/subs/email/list")
         .then(function (res) {
@@ -51,6 +54,33 @@ function subscribers() {
         });
 }
 
+//TODO get comment for blogs //
+function getComments(id) {
+    fetch('/get/comments/blogs/'+id)
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data) {
+            let comments = '';
+            data.forEach((results) => {
+                let { id, blog_id, user_name, new_comment, date_created } = results;
+                comments += `
+                <div class="comments-blog">
+                    <h4 class="comment-user">${user_name}</h4>
+                    <p class="comment-body">"${new_comment}"</p>
+                    <span class="comment-date">(date_created)</span>
+                    <span class="comment-date" id="${id}" onClick="delCom(this.id)">(Delete)</span>
+                </div>
+                <hr>
+                `
+                document.getElementById("comments-div").innerHTML = comments;
+            });
+
+        });
+};
+
+
+
 posts();
 subscribers();
 
@@ -65,8 +95,6 @@ function editPost(id) {
     console.log(text);
     myId.push(id);
 }
-
-
 
 
 //TODO: Post function//
@@ -153,7 +181,7 @@ function updatePost() {
 }
 
 
-
+//delete//
 function del(value) {
     fetch('/deletepost/' + value, {
         method: 'delete',
@@ -172,7 +200,7 @@ function del(value) {
 
 }
 
-//TODO: Post function//
+//TODO: DELETE function comfirm//
 function deletePost(value) {
     var erase = confirm("Are you sure you want to erase this post?");
     if (erase == true) {
@@ -183,4 +211,17 @@ function deletePost(value) {
     };
 };
 
+//delete comments//
+function delCom(id) {
+    fetch('/deletepost/comments/' + id, {
+        method: 'delete',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function (res) {
+        console.log("Deleted");
+    })
+    alert('Comment Deleted!')
+    // window.location.reload();
 
+}
