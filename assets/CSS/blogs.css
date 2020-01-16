@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5{
     display: inline-block;
     width: fit-content;
     margin-bottom: 4px;
+    background-color: rgb(251, 251, 251);
     color: rgb(114, 114, 114);
     padding-left: 6px;
     border: none;

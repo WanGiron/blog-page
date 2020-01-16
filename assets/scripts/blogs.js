@@ -17,6 +17,8 @@ function moreInfo() {
     })
         .then((res) => {
             // console.log(res);
+            //<button type="button" class="comment" data-toggle="modal" data-target="#comment-modal">Add comment</button>
+                           
             var results = res[0];
             var { id, my_blogs, blog_image, blog_date, blog_title, category } = results;
             var blogs = '';
@@ -30,8 +32,7 @@ function moreInfo() {
                             <hr>
                             <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}">
                             <img src="../Images/shareBtn.png" class="share"><span class="share-text">Share</span></a>
-                            <button type="button" class="comment" data-toggle="modal" data-target="#comment-modal">Add comment</button>
-                            <p class="date-created">${dateFormat(blog_date)}</p>                       
+                             <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>
                         
                         <!-- Modal -->
