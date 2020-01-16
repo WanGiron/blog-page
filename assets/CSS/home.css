@@ -395,9 +395,10 @@ h5{
     margin-top: 50px;
     background-color: rgb(41, 41, 41); 
     width: 80%;
+    height: 100px;
     max-width: 1250;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .footer{

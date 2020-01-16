@@ -19,4 +19,11 @@ CREATE TABLE subscribers(
   PRIMARY KEY (id)
 );
 
+CREATE TABLE comments(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  new_comment VARCHAR(400),
+  date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  PRIMARY KEY (id)
+);
+
 SELECT  *from blog_body;
