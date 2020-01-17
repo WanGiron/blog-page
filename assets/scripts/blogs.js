@@ -115,12 +115,12 @@ function sendComment() {
             body: JSON.stringify(comment)
 
         }).then(function (res) {
-            alert('Comment added!');
             window.location.reload();
+            alert('Comment added!'); 
             // window.location.replace('http://localhost:5005/blogs.html?value='+val);
-        })
+        });
 
-    }
+    };
 
 };
 
