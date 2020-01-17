@@ -117,10 +117,9 @@ function sendComment() {
         }).then(function (res) {
             return res.json();
         });
-        
-        alert('Comment added!'); 
-        window.location.replace('http://www.totsandtravels.com/blogs.html?value='+val);
 
+        alert('Comment added!'); 
+        window.location.reload();
     };
 
 };
