@@ -21,10 +21,10 @@ function moreInfo() {
             var results = res[0];
             var { id, my_blogs, blog_image, blog_date, blog_title, category } = results;
             var blogs = '';
-            blogs += `<p class="category-blog">-- ${category} --</p>
-                            <div class="more-div">
-                            <h3 class="blog-header">${blog_title}</h3>
-                            <img class="blog-image-more" src="${blog_image}" class="more-img">
+            blogs += `  <p class="category-blog">-- ${category} --</p>
+                        <div class="more-div">
+                                <h3 class="blog-header">${blog_title}</h3>
+                                <img class="blog-image-more" src="${blog_image}" class="more-img">
                             <div class="blog-body-div">
                                 <p>${my_blogs}</p>
                             </div>
@@ -33,27 +33,6 @@ function moreInfo() {
                             <img src="../Images/shareBtn.png" class="share"><span class="share-text">Share</span></a>
                             <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>
-
-                        <div class="add-comment-form">
-                        <h4 class="modal-title">Add comment</h4>
-                        <form class="new-comment" action="/add/comments" method="POST" onSubmit="alert('Comment added!)">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name"
-                                    placeholder="Enter name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="blog-id" type="text"  id="val" name="val" value="${id}">
-                            </div>
-                            <div class="form-group">
-                                <textarea maxlength="500" type="text" class="form-control" id="comment" 
-                                    placeholder="Add comment here (500 Character max)" name="comment" required></textarea>
-                            </div>
-                            <button class="option1-li" type="submit">Submit</button>
-                        </form>
-                    </div>
-                
-                
-
                         `;
             document.getElementById("my-blog").innerHTML = blogs;
         });

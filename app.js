@@ -216,6 +216,7 @@ app.post("/add/comments", function (req, res) {
     let cleanComment = req.body.comment;
     cleanName = cleanName.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
     cleanComment = cleanComment.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    
 
     var newComment = {
         blog_id: req.body.val,

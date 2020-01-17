@@ -105,6 +105,9 @@ h1, h2, h3, h4, h5{
 }
 .comment-body{
     margin-bottom: 10px;
+    max-width: 1200px;
+    height: fit-content;
+    overflow-wrap: break-word;
 }
 .comment-user{
     display: inline-block;
