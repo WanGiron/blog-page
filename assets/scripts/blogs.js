@@ -33,25 +33,7 @@ function moreInfo() {
                             <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>
 
-                        <div class="add-comment-form">
-                        <h3 class="modal-title">Add comment</h3>
-                        <form class="new-comment">
-                            <div class="form-group">
-                                <label for="Name">Name</label>
-                                <input type="text" class="form-control" id="name"
-                                    placeholder="Enter name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <input class="blog-id" type="text"  id="val" name="val" value="${id}">
-                            </div>
-                            <div class="form-group">
-                                <label for="comment-body">Add comment</label>
-                                <textarea maxlength="500" type="text" class="form-control" id="comment" 
-                                    placeholder="Add comment here (500 Character max)" name="comment" required></textarea>
-                            </div>
-                            <button class="option1-li" onClick="sendComment()">Submit</button>
-                        </form>
-                    </div>
+                        
                 
                 
 
