@@ -116,7 +116,7 @@ function sendComment() {
 
         }).then(function (res) {
             alert('Comment added!');
-            location.reload();
+            window.location.reload();
             // window.location.replace('http://localhost:5005/blogs.html?value='+val);
         })
 
