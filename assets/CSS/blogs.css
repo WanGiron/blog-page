@@ -109,6 +109,7 @@ h1, h2, h3, h4, h5{
     display: inline-block;
     width: fit-content;
 }
+
 .comments-header{
     width: 70%;
     max-width: 1250px;
@@ -162,7 +163,7 @@ span{
 
     .more-div{
         margin: 0 auto;
-        width: 100%;v
+        width: 100%;
     }
 
     .blog-image-more{
@@ -172,5 +173,10 @@ span{
     .blog-body-div{
         padding: 20px;
         margin: 0 auto;
+    }
+
+    .add-comment-form{
+        width: 100%;
+        margin-top: 40px;
     }
 }
