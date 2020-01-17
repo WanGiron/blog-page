@@ -49,7 +49,7 @@ function moreInfo() {
                                 <textarea maxlength="500" type="text" class="form-control" id="comment" 
                                     placeholder="Add comment here (500 Character max)" name="comment" required></textarea>
                             </div>
-                            <button type="submit" class="option1-li" onclick="sendComment()">Submit</button>
+                            <button class="option1-li" onClick="sendComment()">Submit</button>
                         </form>
                     </div>
                 
