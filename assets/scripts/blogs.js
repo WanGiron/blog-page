@@ -115,9 +115,11 @@ function sendComment() {
             body: JSON.stringify(comment)
 
         }).then(function (res) {
-            alert('Comment added!'); 
-            window.location.replace('http://www.totsandtravels.com/blogs.html?value='+val);
+            return res.json();
         });
+        
+        alert('Comment added!'); 
+        window.location.replace('http://www.totsandtravels.com/blogs.html?value='+val);
 
     };
 
