@@ -8,7 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT || 5005;
+var PORT = process.env.PORT || 80;
 
 // Server //
 var app = express();
@@ -68,10 +68,10 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 
 //TODO: create connection Deployment //
 var db = mysql.createConnection({
-    host: '',
-    user: '',
-    password: '',
-    database: ''
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
 });
 
 
@@ -150,7 +150,7 @@ app.post("/email/list/subs", (req, res) => {
                 if (err) {
                     console.log(err)
                 };
-                res.send('Subscribe');
+                res.redirect('/');
                 // res.json({success: true});
             })
             
@@ -212,13 +212,13 @@ app.post('/user/all-post-cat/:cat', function (req, res) {
 //TODO add comments to blogs//
 app.post("/add/comments", function (req, res) {
     console.log("this is the body" + req.body.user);
-    let cleanName = req.body.user;
-    let cleanComment = req.body.content;
+    let cleanName = req.body.name;
+    let cleanComment = req.body.comment;
     cleanName = cleanName.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
     cleanComment = cleanComment.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
 
     var newComment = {
-        blog_id: req.body.id,
+        blog_id: req.body.val,
         user_name: cleanName,
         new_comment: cleanComment
     };
@@ -227,7 +227,7 @@ app.post("/add/comments", function (req, res) {
     db.query(sql, newComment, function (err, result) {
         if (err) throw err;
         // console.log("this is my result"+JSON.stringify(result));
-        // res.json(result);
+        res.redirect('/blogs.html?value='+req.body.val);
     })
 });
 
@@ -249,8 +249,9 @@ app.delete('/deletepost/comments/:id', function (req, res) {
         if (err) throw err;
         // console.log(result);
     })
-    res.send('Updated!');
+    
 });
+
 //----------------------------------------------------------------//
 
 // TODO: to authenticate admin page //

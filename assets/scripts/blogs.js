@@ -1,4 +1,5 @@
 
+
 var url_string = window.location.href;
 var url = new URL(url_string);
 var c = url.searchParams.get('value');
@@ -33,7 +34,23 @@ function moreInfo() {
                             <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>
 
-                        
+                        <div class="add-comment-form">
+                        <h4 class="modal-title">Add comment</h4>
+                        <form class="new-comment" action="/add/comments" method="POST" onSubmit="alert('Comment added!)">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name"
+                                    placeholder="Enter name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="blog-id" type="text"  id="val" name="val" value="${id}">
+                            </div>
+                            <div class="form-group">
+                                <textarea maxlength="500" type="text" class="form-control" id="comment" 
+                                    placeholder="Add comment here (500 Character max)" name="comment" required></textarea>
+                            </div>
+                            <button class="option1-li" type="submit">Submit</button>
+                        </form>
+                    </div>
                 
                 
 
@@ -72,37 +89,37 @@ function getComments() {
 };
 
 //TODO send comment for blog to db //
-function sendComment() {
-    var name = document.getElementById('name').value;
-    var commentBody = document.getElementById('comment').value;
-    var val = document.getElementById('val').value;
-    //check for validation//
-    if (name === "" || commentBody === "") {
-        alert('Please fill all entries')
-    }
+// function sendComment() {
+//     var name = document.getElementById('name').value;
+//     var commentBody = document.getElementById('comment').value;
+//     var val = document.getElementById('val').value;
+//     //check for validation//
+//     if (name === "" || commentBody === "") {
+//         alert('Please fill all entries')
+//     }
 
-    //post request if validation is right//
-    else {
-        var comment = {
-            user: name,
-            content: commentBody,
-            id: val
-        };
+//     //post request if validation is right//
+//     else {
+//         var comment = {
+//             user: name,
+//             content: commentBody,
+//             id: val
+//         };
 
-        fetch('/add/comments', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        }).then(function (res) {
-            alert('Comment added!');
-            window.location.reload(); 
-        })
-        
+//         fetch('/add/comments', {
+//             method: 'post',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(comment),
+//             redirect: "follow"
+//         }).then(function(){
+//             window.location.replace('http://localhost:5005/blogs.html?value='+val);
+//         })   
             
-    };
+//     };
     
-};
+// };
 
 
 // Format date //
