@@ -30,27 +30,17 @@ function moreInfo() {
                             <hr>
                             <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}">
                             <img src="../Images/shareBtn.png" class="share"><span class="share-text">Share</span></a>
-                            <button type="button" class="comment" data-toggle="modal" data-target="#comment-modal">Add comment</button>
                             <p class="date-created">${dateFormat(blog_date)}</p>                       
                         </div>
-                        
-                        <!-- Modal -->
-    <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add comment</h5>
-                    <hr>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form class="new-comment" action="/add/comments" method="POST">
+
+                
+                <div class="add-comment-form">
+                    <h3 class="modal-title">Add comment</h3>
+                    <form class="new-comment">
                         <div class="form-group">
                             <label for="Name">Name</label>
                             <input type="text" class="form-control" id="name"
-                                placeholder="Enter name" name="name">
+                                placeholder="Enter name" name="name" required>
                         </div>
                         <div class="form-group">
                             <input class="blog-id" type="text"  id="val" name="val" value="${id}">
@@ -58,17 +48,12 @@ function moreInfo() {
                         <div class="form-group">
                             <label for="comment-body">Add comment</label>
                             <textarea maxlength="500" type="text" class="form-control" id="comment" 
-                                placeholder="Add comment here (500 Character max)" name="comment"></textarea>
+                                placeholder="Add comment here (500 Character max)" name="comment" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="option1-li" onclick="sendComment()">Submit</button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                
 
                         `;
             document.getElementById("my-blog").innerHTML = blogs;
@@ -98,10 +83,47 @@ function getComments() {
                 <hr>
                 `
                 document.getElementById("new-comments").innerHTML = comments;
+                document.getElementById('total-comments').innerHTML = `(${data.length})`;
             });
 
         });
 };
+
+//TODO send comment for blog to db //
+function sendComment() {
+    var name = document.getElementById('name').value;
+    var commentBody = document.getElementById('comment').value;
+    var val = document.getElementById('val').value;
+    //check for validation//
+    if (name === "" || commentBody === "") {
+        alert('Please fill all entries')
+    }
+
+    //post request if validation is right//
+    else {
+        var comment = {
+            user: name,
+            content: commentBody,
+            id: val
+        };
+
+        fetch('/add/comments', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(comment)
+
+        }).then(function (res) {
+            alert('Comment added!');
+            location.reload();
+            // window.location.replace('http://localhost:5005/blogs.html?value='+val);
+        })
+
+    }
+
+};
+
 
 // Format date //
 let months = {

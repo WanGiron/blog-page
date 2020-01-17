@@ -68,10 +68,10 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 
 //TODO: create connection Deployment //
 var db = mysql.createConnection({
-    host: '',
-    user: '',
-    password: '',
-    database: ''
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
 });
 
 
@@ -196,6 +196,7 @@ app.post('/user/more-info/:value', function (req, res) {
     })
 });
 
+
 // to get one post from database for users // 
 app.post('/user/all-post-cat/:cat', function (req, res) {
     var sql = `SELECT * FROM blog_body WHERE category = "${req.params.cat}"`;
@@ -210,14 +211,14 @@ app.post('/user/all-post-cat/:cat', function (req, res) {
 
 //TODO add comments to blogs//
 app.post("/add/comments", function (req, res) {
-    // console.log("this is the body" + req.params.id);
-    let cleanName = req.body.name;
-    let cleanComment = req.body.comment;
+    console.log("this is the body" + req.body.user);
+    let cleanName = req.body.user;
+    let cleanComment = req.body.content;
     cleanName = cleanName.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
     cleanComment = cleanComment.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
 
     var newComment = {
-        blog_id: req.body.val,
+        blog_id: req.body.id,
         user_name: cleanName,
         new_comment: cleanComment
     };
@@ -226,7 +227,7 @@ app.post("/add/comments", function (req, res) {
     db.query(sql, newComment, function (err, result) {
         if (err) throw err;
         // console.log("this is my result"+JSON.stringify(result));
-        res.send("Comment added!");
+        res.json(result);
     })
 });
 
@@ -238,6 +239,7 @@ app.get('/get/comments/blogs/:id', function(req, res){
         res.json(results);
     })
 })
+
 
 // to delete comments to db // 
 app.delete('/deletepost/comments/:id', function (req, res) {
