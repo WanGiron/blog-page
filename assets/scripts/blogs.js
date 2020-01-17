@@ -37,19 +37,19 @@ function moreInfo() {
 
                         <div class="add-comment-form">
                         <h4 class="modal-title">Add comment</h4>
-                        <form class="new-comment" action="/add/comments" method="POST" onSubmit="alert('Comment added!)">
+                        <form class="new-comment" name="form1" action="/add/comments" method="POST" onsubmit="return required()">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name"
-                                    placeholder="Enter name" name="name" required>
+                                    placeholder="Enter name" name="name">
                             </div>
                             <div class="form-group">
                                 <input class="blog-id" type="text"  id="val" name="val" value="${id}">
                             </div>
                             <div class="form-group">
                                 <textarea maxlength="500" type="text" class="form-control" id="comment" 
-                                    placeholder="Add comment here (500 Character max)" name="comment" required></textarea>
+                                    placeholder="Add comment here (500 Character max)" name="comment"></textarea>
                             </div>
-                            <button class="option1-li" type="submit">Submit</button>
+                            <button class="option1-li" type="submit" name="submit">Submit</button>
                         </form>
                         </div>
                         `;
@@ -57,7 +57,20 @@ function moreInfo() {
         });
 }
 
-
+// form validation // 
+function required() {
+    var empt = document.form1.name.value;
+    var empt2 = document.form1.comment.value;
+    
+    if (empt.trim() == "" || empt2.trim() == "") {
+        alert("Please fill all entries");
+        return false;
+    }
+    else {
+        alert('Thanks for your comment!');
+        return true;
+    }
+}
 
 
 
@@ -74,7 +87,7 @@ function getComments() {
                 comments += `
                 <div class="comments-blog">
                     <h4 class="comment-user">${user_name}</h4>
-                    <p class="comment-body">"${new_comment}"</p>
+                    <p class="comment-body">${new_comment}</p>
                     <span class="comment-date">(${formatCommentsDate(date_created)})</span>
                 </div>
                 <hr>
@@ -114,9 +127,9 @@ function getComments() {
 //         }).then(function(){
 //             window.location.replace('http://localhost:5005/blogs.html?value='+val);
 //         })   
-            
+
 //     };
-    
+
 // };
 
 

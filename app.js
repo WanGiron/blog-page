@@ -209,27 +209,31 @@ app.post('/user/all-post-cat/:cat', function (req, res) {
 });
 
 
+
 //TODO add comments to blogs//
 app.post("/add/comments", function (req, res) {
-    console.log("this is the body" + req.body.user);
-    let cleanName = req.body.name;
-    let cleanComment = req.body.comment;
-    cleanName = cleanName.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
-    cleanComment = cleanComment.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    console.log("this is the body" + req.body.name.length);
     
+        let cleanName = req.body.name;
+        let cleanComment = req.body.comment;
+        cleanName = cleanName.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+        cleanComment = cleanComment.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
 
-    var newComment = {
-        blog_id: req.body.val,
-        user_name: cleanName,
-        new_comment: cleanComment
-    };
+        var newComment = {
+            blog_id: req.body.val,
+            user_name: cleanName,
+            new_comment: cleanComment
+        };
+    
+        var sql = `INSERT into comments SET ?`
+        db.query(sql, newComment, function (err, result) {
+            if (err) throw err;
+            // console.log("this is my result"+JSON.stringify(result));
+            res.redirect('/blogs.html?value='+req.body.val);
+        })
 
-    var sql = `INSERT into comments SET ?`
-    db.query(sql, newComment, function (err, result) {
-        if (err) throw err;
-        // console.log("this is my result"+JSON.stringify(result));
-        res.redirect('/blogs.html?value='+req.body.val);
-    })
+
+    
 });
 
 //TODO get comments //
