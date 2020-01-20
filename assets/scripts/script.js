@@ -99,9 +99,12 @@ function editPost(id) {
 
 //TODO: Post function//
 function sendPost() {
+    // e.preventDefault();
     // var recentPost = document.getElementById('editor1').value;
+    // console.log(recentPost.length);
     var recentPost = CKEDITOR.instances.editor1.getData();
     var date = document.getElementById('blog-date').value;
+    var blogIntro = document.getElementById('blog-intro').value;
     var title = document.getElementById('blog-title').value;
     var image = document.getElementById('blog-image').value;
     var cat = document.getElementById('category').value;
@@ -118,6 +121,7 @@ function sendPost() {
             blog_date: date,
             category: cat,
             blog_title: title,
+            blog_intro: blogIntro,
             blog_image: image
         };
 
@@ -140,8 +144,10 @@ function sendPost() {
 
 //TODO: Post function//
 function updatePost() {
+    // e.preventDefault();
     // var updatedPost = document.getElementById('editor1').value;
     var updatedPost = CKEDITOR.instances.editor1.getData();
+    var blogIntro = document.getElementById('blog-intro').value;
     var updatedImage = document.getElementById('blog-image').value;
     var updatedTilte = document.getElementById('blog-title').value;
     var updatedDate = document.getElementById('blog-date').value;
@@ -158,6 +164,7 @@ function updatePost() {
             blog_image: updatedImage,
             blog_title: updatedTilte,
             blog_date: updatedDate,
+            blog_intro: blogIntro,
             category: updatedCat
         };
 

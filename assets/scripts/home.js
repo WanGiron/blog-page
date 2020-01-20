@@ -9,12 +9,13 @@ function getPost() {
             let blogs = '';
             let latest = '';
             data2.forEach((results) => {
-                let { id, my_blogs, category, blog_image, blog_date, blog_title } = results;
+                let { id, my_blogs, category, blog_image, blog_date, blog_title, blog_intro } = results;
                 blogs += `<div class="blog-div">
                             <p class="home-cat">-- ${category} --</p>
-                            <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id)) alt="...">
+                            <img class="blog-image" src="${blog_image}" id=${id} onClick=(moreInfo(this.id))>
                             <h5>${blog_title}</h5>        
                             <div class="div-blog-body">
+                            <p class="blog-intro-home">${blog_intro}</p>
                             <p class="home-date">${dateFormat(blog_date)}</p>
                             </div>
                             <hr class="hr-blogs-home">
@@ -31,10 +32,11 @@ function getPost() {
             // console.log(last);
             latest += `<div class="latest-blog-navigation">
                         <div class="div-home-latest">
+                        <p class="cat-latest">${category}</p>
                         <h3 class="latest-blog-title">${blog_title}</h3>
-                        <p>${category}</p>
                         <p class="latest-blog-date">${dateFormat(blog_date)}</p>
-                        <p class="read-more">Read more <button id=${id} class="more-btn-latest" value=${id} onClick=(moreInfo(this.value))>Go</button></p>
+                        <button id=${id} class="more-btn-latest" value=${id} onClick=(moreInfo(this.value))>Read more</button>
+                        <hr>
                         <p class="share">Follow me! <a href="https://www.instagram.com/totsandtravel/"><img src="../Images/instalogo.png" class="social-media-img" alt="pic" /></a></p>
                         <p class="share">Share <a href="https://facebook.com/sharer.php?u=totsandtravels.com/blogs.html?value=${id}"><img class="social-media-img" src="../Images/facelogo.png"/></a></p>
                         </div>

@@ -1,5 +1,5 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -34,7 +34,7 @@
         <div class="row row-content-flex">
             <div class="posts-area col-md-8 col-sm-12">
                 
-                <form class="form-body">
+                <div class="form-body">
                     <h3>Content creator</h3>
                     <div class="row-input form-group">
                         <label for="blog-image">Post main image</label>
@@ -60,16 +60,21 @@
                             placeholder="Date"></input>
                     </div>
                     <div class="row-input form-group">
+                        <label for="blog-intro">Write your blog intro</label>
+                        <textarea name="my-blog-intro" id="blog-intro" class="form-control" cols="30" rows="2"
+                            placeholder="Blog introduction here" maxlength="190"></textarea>
+                    </div>
+                    <div class="row-input form-group">
                         <label for="editor1">Write your blog</label>
                         <textarea name="myextarea" id="editor1" class="form-control" cols="30" rows="6"
                             placeholder="write your blog"></textarea>
                     </div>
                     <div class="row-button">
+                        <!-- <button  class="my-button">Submit</button> -->
                         <button id="submit-btn" onclick="sendPost()" class="my-button">Submit</button>
-                        <button id="update-btn" onclick="updatePost()" style="display:none"
-                            class="my-button">Update</button>
+                        <button id="update-btn" onclick="updatePost()" style="display:none"class="my-button">Update</button>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="col-md-4 my-info-area col-sm-12">
                 <div class="admin-area">

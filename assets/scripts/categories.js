@@ -71,14 +71,14 @@ function getAll() {
             // console.log(res);
             let blogs = '';
             res.forEach((results) => {
-                let { id, my_blogs, category, blog_image, blog_date, blog_title } = results;
+                let { id, my_blogs, category, blog_image, blog_date, blog_title, blog_intro } = results;
                 blogs += `
                 <div class="blog-div">
                 <img class="blog-img blog-image" src="${blog_image}" id=${id} onClick="moreInfo(this.id)">
                 <div class="blog-body">
                 <h4 class="title-blog">${blog_title}</h4>
+                <p class="blog-intro-home">${blog_intro}</p>
                 <p class="home-date">${blog_date}</p>
-                
                 </div>
                 <hr class="hr-blogs-home">
                </div>`;

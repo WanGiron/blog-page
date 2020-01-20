@@ -16,6 +16,15 @@ h1, h2, h3, h4, h5{
     /* font-family: 'Alice', serif; */
     /* font-weight: lighter; */
 }
+h1{
+    color:#27B5EA;
+}
+h2{
+   color: #63EA27 ;
+}
+h3{
+    color: rgb(105, 105, 105);
+}
 
 .more-div{
     width: 70%;
@@ -134,8 +143,8 @@ h1, h2, h3, h4, h5{
 .phanton-img{ 
     display: block;
     width: 100%;
-    max-width: 600px;
-    border: 4px rgb(255, 255, 255) solid;
+    max-width: 800px;
+    border: 1px rgb(255, 255, 255) solid;
     height: auto;
     margin: 0 auto;
     margin-top: 20px;
@@ -182,5 +191,14 @@ span{
     .add-comment-form{
         width: 100%;
         margin-top: 40px;
+    }
+
+    #new-comments{
+        width: 100%;
+        padding: 20px;
+    }
+    .comments-header{
+        width: 100%;
+        padding: 20px;
     }
 }
