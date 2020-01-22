@@ -106,6 +106,7 @@ function sendPost() {
     var date = document.getElementById('blog-date').value;
     var blogIntro = document.getElementById('blog-intro').value;
     var title = document.getElementById('blog-title').value;
+    var subTitle = document.getElementById('blog-subtitle').value;
     var image = document.getElementById('blog-image').value;
     var cat = document.getElementById('category').value;
     console.log('test' + recentPost);
@@ -121,6 +122,7 @@ function sendPost() {
             blog_date: date,
             category: cat,
             blog_title: title,
+            blog_subtitle: subTitle,
             blog_intro: blogIntro,
             blog_image: image
         };
@@ -150,6 +152,7 @@ function updatePost() {
     var blogIntro = document.getElementById('blog-intro').value;
     var updatedImage = document.getElementById('blog-image').value;
     var updatedTilte = document.getElementById('blog-title').value;
+    var updatedSubTitle = document.getElementById('blog-subtitle').value;
     var updatedDate = document.getElementById('blog-date').value;
     var updatedCat = document.getElementById('category').value;
 
@@ -163,6 +166,7 @@ function updatePost() {
             my_blogs: updatedPost,
             blog_image: updatedImage,
             blog_title: updatedTilte,
+            blog_subtitle: updatedSubTitle,
             blog_date: updatedDate,
             blog_intro: blogIntro,
             category: updatedCat

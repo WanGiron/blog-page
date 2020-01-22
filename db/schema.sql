@@ -6,6 +6,7 @@ CREATE TABLE blog_body(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
   blog_image VARCHAR(300),
   blog_title VARCHAR(100),
+  blog_subtitle VARCHAR(100),
   blog_intro VARCHAR(200),
   category VARCHAR(100),
   my_blogs VARCHAR(2000),

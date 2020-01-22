@@ -19,11 +19,12 @@ function moreInfo() {
         .then((res) => {
             // console.log(res);
             var results = res[0];
-            var { id, my_blogs, blog_image, blog_date, blog_title, category } = results;
+            var { id, my_blogs, blog_image, blog_date, blog_title, category, blog_subtitle } = results;
             var blogs = '';
             blogs += `  <p class="category-blog">-- ${category} --</p>
                         <div class="more-div">
-                                <h3 class="blog-header">${blog_title}</h3>
+                                <h1 class="blog-header">${blog_title}</h1>
+                                <h4 class="blog-subtitle">${blog_subtitle}</h4>
                                 <img class="blog-image-more" src="${blog_image}" class="more-img">
                             <div class="blog-body-div">
                                 <p>${my_blogs}</p>

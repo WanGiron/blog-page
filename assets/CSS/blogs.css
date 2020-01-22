@@ -16,15 +16,18 @@ h1, h2, h3, h4, h5{
     /* font-family: 'Alice', serif; */
     /* font-weight: lighter; */
 }
+
 h1{
     color:#27B5EA;
 }
 h2{
-   color: #63EA27 ;
+   color: #FF5050;
 }
 h3{
     color: rgb(105, 105, 105);
 }
+
+
 
 .more-div{
     width: 70%;
@@ -41,11 +44,16 @@ h3{
 
 .blog-header{
     text-align: center;
-    margin: 0;
-    padding: 6px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin-top: 40px;
     color: #FF5050;
+}
+
+.blog-subtitle{
+    text-align: center;
+    color: rgb(100, 100, 100);
+    font-size: 24px;
+    margin-bottom: 40px;
+
 }
 
 .category-blog{
@@ -143,14 +151,19 @@ h3{
 .phanton-img{ 
     display: block;
     width: 100%;
-    max-width: 800px;
-    border: 1px rgb(255, 255, 255) solid;
+    max-width: 900px;
+    /* border: 1px rgb(255, 255, 255) solid; */
     height: auto;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     /* border: solid rgb(150, 150, 150) 1px; */
+}
+
+.phanton-ul{
+    list-style-type: circle;
+    margin-left: 60px;
 }
 
 .share{
@@ -173,7 +186,12 @@ span{
         margin-top: 20px;
         width: 100%;
     }
-
+    .blog-header{
+        margin-top: 20px;
+    }
+    .blog-subtitle{
+        margin-bottom: 20px;
+    }
     .more-div{
         margin: 0 auto;
         width: 100%;
@@ -200,5 +218,16 @@ span{
     .comments-header{
         width: 100%;
         padding: 20px;
+    }
+    h1{
+        font-size: 30px;
+    }
+
+    h2, h3 {
+        font-size: 22px;
+    }
+
+    .phanton-ul{
+        margin-left: 20px;
     }
 }

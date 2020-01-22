@@ -8,7 +8,7 @@ var passport = require('passport');
 
 
 
-var PORT = process.env.PORT || 5005;
+var PORT = process.env.PORT || 80;
 
 // Server //
 var app = express();
@@ -68,10 +68,10 @@ mongoose.connect(mdb, { useNewUrlParser: true })
 
 //TODO: create connection Deployment //
 var db = mysql.createConnection({
-    host: '',
-    user: '',
-    password: '',
-    database: ''
+    host: 'localhost',
+    user: 'root',
+    password: 'Nuevavida7',
+    database: 'blog'
 });
 
 
@@ -102,6 +102,7 @@ app.post('/postblog', function (req, res) {
     var post = {
         my_blogs: frontPost.my_blogs,
         blog_title: frontPost.blog_title,
+        blog_subTitle: frontPost.blog_subtitle,
         category: frontPost.category,
         blog_intro: frontPost.blog_intro,
         blog_date: frontPost.blog_date,
@@ -123,6 +124,7 @@ app.post('/updatedpost/:id', function (req, res) {
     var post = {
         my_blogs: frontPost.my_blogs,
         blog_title: frontPost.blog_title,
+        blog_subTitle: frontPost.blog_subtitle,
         category: frontPost.category,
         blog_intro: frontPost.blog_intro,
         blog_date: frontPost.blog_date,
